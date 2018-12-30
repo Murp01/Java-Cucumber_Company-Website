@@ -11,15 +11,15 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 
 import pageObjects.BasePage;
-import pageObjects.Page01_Page;
-import pageObjects.Page02_Page;
+import pageObjects.Home_Page;
+import pageObjects.AboutUs_Page;
 
 public class DriverFactory {
 
 	public static WebDriver driver;
 	public static BasePage basePage;
-	public static Page01_Page page01Page;
-	public static Page02_Page page02Page;
+	public static Home_Page homePage;
+	public static AboutUs_Page aboutUsPage;
 
 	public WebDriver getDriver() {
 
@@ -66,8 +66,8 @@ public class DriverFactory {
 			System.out.println("Unable to load browser: " + e.getMessage());
 		} finally {
 			driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-			page01Page = PageFactory.initElements(driver, Page01_Page.class);
-			page02Page = PageFactory.initElements(driver, Page02_Page.class);
+			homePage = PageFactory.initElements(driver, Home_Page.class);
+			aboutUsPage = PageFactory.initElements(driver, AboutUs_Page.class);
 			basePage = PageFactory.initElements(driver, BasePage.class);
 			
 		}

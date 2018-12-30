@@ -5,7 +5,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import utils.DriverFactory;
 
-public class Page02Steps extends DriverFactory{
+public class AboutUsSteps extends DriverFactory{
 	
 	@Given("^user navigates to \"([^\"]*)\" website$")
 	public void user_navigates_to_website(String url) throws Throwable {
