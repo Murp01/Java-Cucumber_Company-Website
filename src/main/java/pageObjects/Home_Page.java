@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 public class Home_Page extends BasePage {
+	
 	public @FindBy(xpath = "//div[@class='slide slick-slide slick-current slick-active']//span[@class='icon-link-arrow-right']") WebElement button_CarouselNavRight;
 	public @FindBy(xpath = "//div[@class='slide slick-slide slick-current slick-active']//span[@class='icon-link-arrow-left']") WebElement button_CarouselNavLeft;
 	public @FindBy(css = "#slide-3cd12c03-b989-49a1-994a-39244c7aa792") WebElement slide_Index01;
