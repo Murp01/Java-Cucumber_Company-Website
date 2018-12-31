@@ -1,5 +1,7 @@
 package stepDefinitions;
 
+import org.openqa.selenium.By;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -7,29 +9,26 @@ import utils.DriverFactory;
 
 public class HomePage_Steps extends DriverFactory{	
 	
-	@Given("^I access the BBC news homepage$")
-	public void i_access_the_BBC_news_homepage() throws Throwable {
-		homePage.getBBCHomepage();
-	}
 	
-	@Given("^I click on the searchbar$")
-	public void i_click_on_the_searchbar() throws Throwable {
-		homePage.clickOnSearchBar();
+	@Given("^I access the websites homepage$")
+	public void i_access_the_websites_homepage() throws Throwable {
+		homePage.getLLHomepage();
 	}
 
-	@Given("^I enter \"([^\"]*)\" into the searchbar textfield$")
-	public void i_enter_into_the_searchbar_textfield(String searchTerm) throws Throwable {
-		homePage.sendKeysToWebElement(homePage.textField_SearchBar, searchTerm);
+	@When("^I scroll the carousel feature by clicking on the \"([^\"]*)\" border arrow$")
+	public void i_scroll_the_carousel_feature_by_clicking_on_the_border_arrow(String navDir) throws Throwable {
+		if(navDir.equals("Left")) {
+			homePage.button_CarouselNavLeft.click();
+		}
+		else {
+			homePage.button_CarouselNavRight.click();
+		}
+		Thread.sleep(3000);
 	}
 
-	@When("^I click on the search icon$")
-	public void i_click_on_the_search_icon() throws Throwable {
-
-	}
-
-	@Then("^the search results will retrieve results matching the \"([^\"]*)\" search term$")
-	public void the_search_results_will_retrieve_results_matching_the_search_term(String arg1) throws Throwable {
-
+	@Then("^the carousel slide will change$")
+	public void the_carousel_slide_will_change() throws Throwable {
+		homePage.assertSlideHasChanged();
 	}
 }
 	

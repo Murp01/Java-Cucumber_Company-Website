@@ -1,11 +1,12 @@
-Feature: open BBC News and search for today
+Feature: Homepage Carousel widget
 
-Scenario: Open BBC news homepage and search for today
-	Given I access the BBC news homepage
-	And I click on the searchbar
-	And I enter "today" into the searchbar textfield
-	When I click on the search icon
-	Then the search results will retrieve results matching the "" search term
+Scenario: Click on different tabs on Carousel widget via border arrows
+	Given I access the websites homepage
+	When I scroll the carousel feature by clicking on the "Right" border arrow
+	When I scroll the carousel feature by clicking on the "Right" border arrow
+	Then the carousel slide will change
+	
+	
 	
 
 	
