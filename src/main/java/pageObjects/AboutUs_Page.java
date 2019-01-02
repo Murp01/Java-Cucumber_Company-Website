@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 public class AboutUs_Page extends BasePage{
 	
 	public @FindBy(css = "#container-special-offers") WebElement button_SpecialOffers;	
-	public @FindBy(css = "//div[contains(@class,'ui-accordion ui-widget ui-helper-reset')]") WebElement widget_Accordion;
+	public @FindBy(xpath = "//div[contains(@class,'ui-accordion ui-widget ui-helper-reset')]") WebElement widget_Accordion;
 	
 	public AboutUs_Page() throws IOException {
 		super();

@@ -11,6 +11,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 
 import pageObjects.BasePage;
+import pageObjects.Careers_Page;
 import pageObjects.Home_Page;
 import pageObjects.PrimaryNav_Page;
 import pageObjects.AboutUs_Page;
@@ -22,6 +23,7 @@ public class DriverFactory {
 	public static Home_Page homePage;
 	public static AboutUs_Page aboutUsPage;
 	public static PrimaryNav_Page primaryNavPage;
+	public static Careers_Page careersPage;
 
 	public WebDriver getDriver() {
 
@@ -72,6 +74,7 @@ public class DriverFactory {
 			aboutUsPage = PageFactory.initElements(driver, AboutUs_Page.class);
 			basePage = PageFactory.initElements(driver, BasePage.class);
 			primaryNavPage = PageFactory.initElements(driver, PrimaryNav_Page.class);
+			careersPage = PageFactory.initElements(driver, Careers_Page.class);
 		}
 		return driver;
 
