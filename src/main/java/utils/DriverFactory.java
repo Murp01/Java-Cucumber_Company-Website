@@ -12,7 +12,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import pageObjects.BasePage;
 import pageObjects.Careers_Page;
+import pageObjects.FindALawyer_Page;
 import pageObjects.Home_Page;
+import pageObjects.NavFindPeople_Page;
 import pageObjects.PrimaryNav_Page;
 import pageObjects.AboutUs_Page;
 
@@ -24,6 +26,8 @@ public class DriverFactory {
 	public static AboutUs_Page aboutUsPage;
 	public static PrimaryNav_Page primaryNavPage;
 	public static Careers_Page careersPage;
+	public static NavFindPeople_Page navFindPeoplePage;
+	public static FindALawyer_Page findALawyerPage;
 
 	public WebDriver getDriver() {
 
@@ -75,6 +79,8 @@ public class DriverFactory {
 			basePage = PageFactory.initElements(driver, BasePage.class);
 			primaryNavPage = PageFactory.initElements(driver, PrimaryNav_Page.class);
 			careersPage = PageFactory.initElements(driver, Careers_Page.class);
+			navFindPeoplePage = PageFactory.initElements(driver, NavFindPeople_Page.class);
+			findALawyerPage = PageFactory.initElements(driver, FindALawyer_Page.class);
 		}
 		return driver;
 

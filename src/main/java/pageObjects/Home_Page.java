@@ -35,6 +35,7 @@ public class Home_Page extends BasePage {
 		 * Should we check the order. No matter what I do the element is found?
 		 * */
 		//String slideHidden = slide_Index01.getText().toString();
+		//Why haven't I added page object in method declaration? Do I need to if not returning?
 		
 		WebElement element = getDriver().findElement(By.cssSelector("#slide-3cd12c03-b989-49a1-994a-39244c7aa792"));
 		button_CarouselNavRight.click();

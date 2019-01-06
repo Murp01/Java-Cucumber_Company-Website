@@ -19,5 +19,13 @@ public class PrimaryNav_Steps extends DriverFactory {
 		Assert.assertTrue(getDriver().getCurrentUrl().equals(pageURL));
 		System.out.println(getDriver().getCurrentUrl());
 	}
+	
+	@When("^I hover over the \"([^\"]*)\" title in the primary navigation$")
+	public void i_hover_over_the_title_in_the_primary_navigation(String title) throws Throwable {
+
+		
+	}
+	
+
 
 }
