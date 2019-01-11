@@ -1,7 +1,11 @@
 package pageObjects;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +16,7 @@ public class NavFindPeople_Page extends BasePage {
 	public @FindBy(xpath = "//li/a[contains(text(),'Find People')]") WebElement title_FindPeople;
 	public @FindBy(xpath = "//input[@id='lawyer-search-term-nav']") WebElement textField_FPSearch;
 	public @FindBy(xpath = "//div[@class='row lawyerSearch__results']") WebElement container_RetrievedLawyers;
-	public @FindBy(xpath = "//div[@class='row lawyerSearch__results']") WebElement resultItem_RetrievedLawyers;
+	public @FindBy(xpath = "//div[@class='col-sm-4 lawyerSearch__resultItem']/*/span[1]") WebElement resultItem_RetrievedLawyers;
 
 	public NavFindPeople_Page() throws IOException {
 		super();
@@ -33,6 +37,20 @@ public class NavFindPeople_Page extends BasePage {
 
 		return new NavFindPeople_Page();		
 	}
+	
+	public void testMethod() throws InterruptedException{
+		Thread.sleep(3000);
+		List<WebElement> joeBox = driver.findElements(By.xpath("//div[@class='col-sm-4 lawyerSearch__resultItem']/*/span[1]"));
+		
+		System.out.println(joeBox);
+
+		//for (int i = 0; i < joeBox.size(); i++){
+			//System.out.println(resultItem_RetrievedLawyers.getText());
+		//}
+		
+	}
+	
+	
 	/*locate all elements
 	 * Create an array for all elements
 	 * Create a for loop that uses an element

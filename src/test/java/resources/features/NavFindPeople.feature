@@ -5,5 +5,6 @@ Scenario: Find People Drop Down Search old
 	Given I access the websites homepage
 	When I hover over the "Find People" title in the primary navigation and click the "Search Box"
 	And I enter the following search term "ian" into the Search Box
-	Then all retrieved results will contain the the term "ian"
+	Then test step will return the result DELETE ME
+	#Then all retrieved results will contain the the term "ian"
 	
