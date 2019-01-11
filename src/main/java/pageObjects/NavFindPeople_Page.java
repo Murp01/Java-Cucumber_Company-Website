@@ -11,7 +11,8 @@ public class NavFindPeople_Page extends BasePage {
 	public @FindBy(xpath = "") WebElement navLinKFindPeople;
 	public @FindBy(xpath = "//li/a[contains(text(),'Find People')]") WebElement title_FindPeople;
 	public @FindBy(xpath = "//input[@id='lawyer-search-term-nav']") WebElement textField_FPSearch;
-	public @FindBy(css = "span[class='listCta__subtitle ellipsis listCta__subtitle--top color-brand-white']") WebElement container_RetrievedLawyers;
+	public @FindBy(xpath = "//div[@class='row lawyerSearch__results']") WebElement container_RetrievedLawyers;
+	public @FindBy(xpath = "//div[@class='row lawyerSearch__results']") WebElement resultItem_RetrievedLawyers;
 
 	public NavFindPeople_Page() throws IOException {
 		super();
@@ -32,5 +33,13 @@ public class NavFindPeople_Page extends BasePage {
 
 		return new NavFindPeople_Page();		
 	}
+	/*locate all elements
+	 * Create an array for all elements
+	 * Create a for loop that uses an element
+	 * gets the name text from element
+	 * Checks if the name string contains the search term
+	 * If search term is contained in name then move to next element
+	 * else step fails (exception?)
+	 */
 
 }
