@@ -15,10 +15,8 @@ public class ContactUs_Page extends BasePage {
 	}
 	
 	public ContactUs_Page selectLocationFromDropDown(String location) throws IOException, InterruptedException {
-		//Select dropLocation = new Select(driver.findElement(By.className("mapContact__citySelect")));
 		dropBox_Select.click();
-		driver.findElement(By.linkText(location)).click();;
-		
+		driver.findElement(By.linkText(location)).click();;		
 		return new ContactUs_Page();	
 	}
 
