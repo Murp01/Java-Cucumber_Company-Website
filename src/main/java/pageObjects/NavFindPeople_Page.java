@@ -32,11 +32,12 @@ public class NavFindPeople_Page extends BasePage {
 	}
 	
 	public NavFindPeople_Page assertRetrievedResultsContainSearchTerm(String searchTerm) throws Exception {
+		Thread.sleep(3000);
 		List<WebElement> profileName = driver.findElements(By.xpath("//div[@class='col-sm-4 lawyerSearch__resultItem']/*/span[1]"));
 		for (WebElement we: profileName) {
 			String nameIs = we.getText();
 			nameIs = nameIs.toLowerCase();	
-			System.out.println("Print out this name " + nameIs);
+			System.out.println("search term is " + searchTerm + " and profile reads as " + nameIs);
 			assertTrue(nameIs.contains(searchTerm));
 		}	
 		return new NavFindPeople_Page();		
