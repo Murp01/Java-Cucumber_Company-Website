@@ -35,7 +35,8 @@ public class NavFindPeople_Page extends BasePage {
 		List<WebElement> profileName = driver.findElements(By.xpath("//div[@class='col-sm-4 lawyerSearch__resultItem']/*/span[1]"));
 		for (WebElement we: profileName) {
 			String nameIs = we.getText();
-			nameIs = nameIs.toLowerCase();		
+			nameIs = nameIs.toLowerCase();	
+			System.out.println("Print out this name " + nameIs);
 			assertTrue(nameIs.contains(searchTerm));
 		}	
 		return new NavFindPeople_Page();		
