@@ -31,4 +31,6 @@ Scenario Outline: I can start a new match query by clicking on a link from the c
 Scenario Outline: I can click on a link from the matched results screen that will take me to websites Our Opportunities page 
 	Given I am on the "<matchedresultscreen1>" matched results screen
 	When I click on the "VIEW MORE" button on the matched results screen
-	Then the "" page will be opened
+	Then the "https://careers.linklaters.com/early-careers/our-opportunities" page will be opened
+	Examples:
+	|	School	|
