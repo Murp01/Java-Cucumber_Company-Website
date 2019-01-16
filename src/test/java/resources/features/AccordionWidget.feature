@@ -5,6 +5,7 @@ Upon clicking on the subject header the content will be displayed below.  The co
 when clicked on will redirect to another webpage.  Each segment will remain open when another has been clicked
 on.  When arriving on a webage that contains an accordion feature all segments will be closed by default
 
+@Testme
 Scenario: Open all accordions segments
 	Given I am on the "https://www.linklaters.com/en/about-us" page
 	When I click on each "closed" accordions segments

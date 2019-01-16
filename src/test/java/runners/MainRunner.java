@@ -7,8 +7,8 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @RunWith(Cucumber.class)
 
-@CucumberOptions(features = { "src/test/java/resources/features/" }, glue = {
-		"stepDefinitions" }, monochrome = true, tags = {}, 
+@CucumberOptions(features = { "src/test/java/resources/features/AccordionWidget.feature" }, glue = {
+		"stepDefinitions" }, monochrome = true, tags = {"@Testme"}, 
 				plugin = { "pretty", "html:target/cucumber", "json:target/cucumber.json",
 				"com.cucumber.listener.ExtentCucumberFormatter:output/report.html" })
 
