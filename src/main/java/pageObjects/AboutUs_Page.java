@@ -39,19 +39,19 @@ public class AboutUs_Page extends BasePage{
 	
 	public void clickOnClosedAccordionTabs() throws InterruptedException {
 		if (!textfield_Accordion01.isDisplayed()) {
-			tab_Accordion01.click();
+			jsClick(tab_Accordion01);
 		}
 		else {
 			System.out.println("already open");
 		}
 		if (!textfield_Accordion02.isDisplayed()) {
-			tab_Accordion02.click();
+			jsClick(tab_Accordion02);
 		}
 		else {
 			System.out.println("already open");
 		}
 		if (!textfield_Accordion03.isDisplayed()) {
-			tab_Accordion03.click();
+			jsClick(tab_Accordion03);
 			Thread.sleep(9000);
 		}
 		else {
