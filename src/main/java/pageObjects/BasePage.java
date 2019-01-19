@@ -23,6 +23,25 @@ import utils.DriverFactory;
 public class BasePage extends DriverFactory {
 	protected WebDriverWait wait;
 	protected JavascriptExecutor jsExecutor;
+	
+	public void navigateBrowser (String navigate) throws InterruptedException {
+		//move to base page
+		switch(navigate) {
+			case "back":{
+				getDriver().navigate().back();	
+				}
+				break;
+			case "forward": {
+				getDriver().navigate().forward();
+			}
+				break;
+			case "refresh": {
+				getDriver().navigate().refresh();
+			}
+			break;
+		}
+		
+	}
 
 	public BasePage() throws IOException {
 		this.wait = new WebDriverWait(driver, 15);

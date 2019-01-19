@@ -58,6 +58,38 @@ public class AboutUs_Page extends BasePage{
 			System.out.println("already open");
 		}
 	}
+	
+	public void clickOnSingleTab(String tabNumber) throws InterruptedException {
+		String accordionText01 = "We work with companies, financial institutions, funds and governments to";
+		String accordionText02 = "We are a people business. Being best in class in the eyes of our clients means ";
+		String accordionText03 = "Investing in our clients and empowering our teams – whilst vital – are not enough to ";
+		switch(tabNumber) {
+			case "segment01":
+				if (!textfield_Accordion01.isDisplayed()) {
+					jsClick(tab_Accordion01);
+					Thread.sleep(3000);
+					Assert.assertTrue(textfield_Accordion01.getText().contains(accordionText01));
+				}
+				break;
+			case "segment02":
+				if (!textfield_Accordion02.isDisplayed()) {
+					jsClick(tab_Accordion02);
+					Assert.assertTrue(textfield_Accordion02.getText().contains(accordionText02));
+				}
+				break;
+			case "segment03":
+				if (!textfield_Accordion03.isDisplayed()) {
+					jsClick(tab_Accordion03);
+					Assert.assertTrue(textfield_Accordion03.getText().contains(accordionText03));
+				}
+				break;
+		}
+		
+	}
+		
+		
+		
+
 
 
 }

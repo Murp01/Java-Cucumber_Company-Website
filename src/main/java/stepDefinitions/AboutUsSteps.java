@@ -43,17 +43,18 @@ public class AboutUsSteps extends DriverFactory{
 
 	@Given("^\"([^\"]*)\" is open$")
 	public void is_open(String arg1) throws Throwable {
-
+		aboutUsPage.clickOnSingleTab(arg1);
 	}
 
 	@When("^I go to another page on the same website$")
 	public void i_go_to_another_page_on_the_same_website() throws Throwable {
-
+		getDriver().get("https://www.linklaters.com/en/sectors");
 	}
 
 	@When("^I click the \"([^\"]*)\" browser button$")
 	public void i_click_the_browser_button(String arg1) throws Throwable {
-
+		basePage.navigateBrowser(arg1);
+		Thread.sleep(6000);
 	}
 
 	@Then("^all accordion segments will be closed$")
