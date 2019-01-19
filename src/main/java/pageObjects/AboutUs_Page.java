@@ -16,6 +16,7 @@ public class AboutUs_Page extends BasePage{
 	public @FindBy(xpath = "//div[@id='ui-id-2']") WebElement textfield_Accordion01;
 	public @FindBy(xpath = "//div[@id='ui-id-4']") WebElement textfield_Accordion02;
 	public @FindBy(xpath = "//div[@id='ui-id-6']") WebElement textfield_Accordion03;
+	public @FindBy(css = "#ui-id-2") WebElement textfield_Accordion01css;
 	
 	
 	public AboutUs_Page() throws IOException {
@@ -30,6 +31,19 @@ public class AboutUs_Page extends BasePage{
 		Assert.assertTrue(textfield_Accordion01.getText().contains(accordionText01));
 		Assert.assertTrue(textfield_Accordion02.getText().contains(accordionText02));
 		Assert.assertTrue(textfield_Accordion03.getText().contains(accordionText03));
+	}
+	
+	public void assertAccordionTextFieldClosed() {
+		//I will be better using the style display = block to assert the text block as it changes when expanded
+		
+		String accordionText01 = "We work with companies, financial institutions, funds and governments to";
+		String accordionText02 = "We are a people business. Being best in class in the eyes of our clients means ";
+		String accordionText03 = "Investing in our clients and empowering our teams – whilst vital – are not enough to ";
+		
+		String styleStatus = textfield_Accordion01css.getAttribute("style");
+		System.out.println(styleStatus);
+		Assert.assertFalse(textfield_Accordion02.getText().contains(accordionText02));
+		Assert.assertFalse(textfield_Accordion03.getText().contains(accordionText03));		
 	}
 	
 	public void checkAccordionWidgetIsClosed() {

@@ -54,12 +54,12 @@ public class AboutUsSteps extends DriverFactory{
 	@When("^I click the \"([^\"]*)\" browser button$")
 	public void i_click_the_browser_button(String arg1) throws Throwable {
 		basePage.navigateBrowser(arg1);
-		Thread.sleep(6000);
+		//Thread.sleep(6000);
 	}
 
 	@Then("^all accordion segments will be closed$")
 	public void all_accordion_segments_will_be_closed() throws Throwable {
-
+		aboutUsPage.assertAccordionTextFieldClosed();
 	}
 
 	@Given("^I click on each of the accordions segments$")
