@@ -1,5 +1,6 @@
 Feature: Webpages
 
+
 Scenario Outline: I want the title and the URL to be correct when accessing pages from the primary navigation bar
 	Given I am on the "<startpage>" page
 	When I click on "<primarynavpage>" from the primary navigation
