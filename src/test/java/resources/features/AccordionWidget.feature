@@ -23,18 +23,18 @@ Scenario: Close all segments of the accordion widget
 	When I click on each "open" accordion segment
 	Then all accordion segments will be closed
 	
-@Testme
 Scenario:  All links within accordion's content will direct to the correct destination page
 	Given I am on the "https://www.linklaters.com/en/about-us" page
 	And "segment01" is open
 	When I click on the "ResponsibleBusinessSection" link from within "segment01"
 	Then the webpage will change to "https://www.linklaters.com/en/about-us/responsibility"
-	
+
+@Testme	
 Scenario: Segments will remain open when another segment is opened
 	Given I am on the "https://www.linklaters.com/en/about-us" page
-	And "segment01" has been opened
-	When I click o "segment02"
-	Then "segment01" will remain open
+	And "segment01" is open
+	When "segment02" is open
+	Then "segment01 " will remain open
 
 
 	

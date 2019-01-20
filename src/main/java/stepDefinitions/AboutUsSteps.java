@@ -88,8 +88,8 @@ public class AboutUsSteps extends DriverFactory{
 	}
 
 	@Then("^\"([^\"]*)\" will remain open$")
-	public void will_remain_open(String arg1) throws Throwable {
-
+	public void will_remain_open(String openTab) throws Throwable {
+		aboutUsPage.assertAccordionTabOpen(openTab);
 	}
 
 

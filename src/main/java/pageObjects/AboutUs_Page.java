@@ -36,6 +36,21 @@ public class AboutUs_Page extends BasePage{
 		Assert.assertTrue(textfield_Accordion03.getAttribute("style").contains("none"));		
 	}
 	
+	public void assertAccordionTabOpen(String openTab) {
+		switch(openTab) {
+		case "segment01":
+			Assert.assertTrue(textfield_Accordion01css.getAttribute("style").contains("block"));
+			break;
+		case "segment02":
+			Assert.assertTrue(textfield_Accordion02.getAttribute("style").contains("block"));
+			break;
+		case "segment03":
+			Assert.assertTrue(textfield_Accordion03.getAttribute("style").contains("block"));
+			break;
+		}
+
+	}
+	
 	public void checkAccordionWidgetIsClosed() {
 		String accodordionClosed = widget_Accordion.getAttribute("data-open");
 		Assert.assertTrue(accodordionClosed.equals(true));		
