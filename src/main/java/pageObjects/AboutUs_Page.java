@@ -17,6 +17,7 @@ public class AboutUs_Page extends BasePage{
 	public @FindBy(xpath = "//div[@id='ui-id-4']") WebElement textfield_Accordion02;
 	public @FindBy(xpath = "//div[@id='ui-id-6']") WebElement textfield_Accordion03;
 	public @FindBy(css = "#ui-id-2") WebElement textfield_Accordion01css;
+	public @FindBy(xpath = "//a[contains(text(),'responsible business section')]") WebElement href_ResponsibleBusinessSection;
 	
 	
 	public AboutUs_Page() throws IOException {
@@ -118,6 +119,34 @@ public class AboutUs_Page extends BasePage{
 		Thread.sleep(9000);
 	}
 	
+	public void clickOnLinkWithinAccordionTextbox(String link, String section) throws InterruptedException {
+		System.out.println(section);
+		System.out.println(link);
+		switch(section) {		
+			case "segment01":
+				href_ResponsibleBusinessSection.click();
+				break;
+			case "segment02":
+				System.out.println("You'd be lucky");
+				break;
+		}
+		
+	}
+	
+	public void webpageChangeTo(String webpage) {
+		//move to basepage
+		switch(webpage) {
+			case "https://www.linklaters.com/en/about-us/responsibility":
+				System.out.println(webpage);
+				Assert.assertTrue(webpage.equals("https://www.linklaters.com/en/about-us/responsibility"));				
+				break;
+			case "template":
+				Assert.assertTrue(webpage.equals(""));
+				break;
+		}
+		
+	}
+	
 	public void clickOnOpenClosedAccordionTabs(String tabStyle) throws InterruptedException {
 		switch(tabStyle) {
 			case "closed":
@@ -165,6 +194,8 @@ public class AboutUs_Page extends BasePage{
 				break;
 		}
 	}
+	
+
 		
 	
 }

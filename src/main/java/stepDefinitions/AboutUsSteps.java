@@ -1,6 +1,8 @@
 package stepDefinitions;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -71,13 +73,13 @@ public class AboutUsSteps extends DriverFactory{
 	}
 
 	@When("^I click on the \"([^\"]*)\" link from within \"([^\"]*)\"$")
-	public void i_click_on_the_link_from_within(String arg1, String arg2) throws Throwable {
-
+	public void i_click_on_the_link_from_within(String link, String section) throws Throwable {
+		aboutUsPage.clickOnLinkWithinAccordionTextbox(link, section);
 	}
 
 	@Then("^the webpage will change to \"([^\"]*)\"$")
-	public void the_webpage_will_change_to(String arg1) throws Throwable {
-
+	public void the_webpage_will_change_to(String webpage) throws Throwable {
+		aboutUsPage.webpageChangeTo(webpage);
 	}
 
 	@When("^I click o \"([^\"]*)\"$")

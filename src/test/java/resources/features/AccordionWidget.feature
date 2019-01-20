@@ -17,18 +17,18 @@ Scenario: Upon arriving on the page the accordion will be closed by default
 	And I click the "back" browser button
 	Then all accordion segments will be closed
 	
-@Testme
 Scenario: Close all segments of the accordion widget
 	Given I am on the "https://www.linklaters.com/en/about-us" page
 	And I click on each of the accordions segments
 	When I click on each "open" accordion segment
 	Then all accordion segments will be closed
 	
+@Testme
 Scenario:  All links within accordion's content will direct to the correct destination page
 	Given I am on the "https://www.linklaters.com/en/about-us" page
-	And "segment01" has been opened
-	When I click on the "" link from within "segment01"
-	Then the webpage will change to ""
+	And "segment01" is open
+	When I click on the "ResponsibleBusinessSection" link from within "segment01"
+	Then the webpage will change to "https://www.linklaters.com/en/about-us/responsibility"
 	
 Scenario: Segments will remain open when another segment is opened
 	Given I am on the "https://www.linklaters.com/en/about-us" page
