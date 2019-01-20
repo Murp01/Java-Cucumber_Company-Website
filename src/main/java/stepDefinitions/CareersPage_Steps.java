@@ -7,10 +7,7 @@ import utils.DriverFactory;
 
 public class CareersPage_Steps extends DriverFactory {
 	
-	@Given("^I am on the \"([^\"]*)\" page$")
-	public void i_am_on_the_page(String page) throws Throwable {
-		getDriver().get(page);
-	}
+
 
 	@When("^I click on stacked tab \"([^\"]*)\"$")
 	public void i_click_on_stacked_tab(String tab) throws Throwable {

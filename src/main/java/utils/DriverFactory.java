@@ -15,6 +15,7 @@ import pageObjects.Careers_Page;
 import pageObjects.ContactUs_Page;
 import pageObjects.FindALawyer_Page;
 import pageObjects.Home_Page;
+import pageObjects.LandingPageChecks_Page;
 import pageObjects.NavFindPeople_Page;
 import pageObjects.PrimaryNav_Page;
 import pageObjects.AboutUs_Page;
@@ -30,6 +31,7 @@ public class DriverFactory {
 	public static NavFindPeople_Page navFindPeoplePage;
 	public static FindALawyer_Page findALawyerPage;
 	public static ContactUs_Page contactUsPage;
+	public static LandingPageChecks_Page landingPageChecksPage;
 
 	public WebDriver getDriver() {
 
@@ -84,6 +86,7 @@ public class DriverFactory {
 			navFindPeoplePage = PageFactory.initElements(driver, NavFindPeople_Page.class);
 			findALawyerPage = PageFactory.initElements(driver, FindALawyer_Page.class);
 			contactUsPage = PageFactory.initElements(driver, ContactUs_Page.class);
+			landingPageChecksPage = PageFactory.initElements(driver, LandingPageChecks_Page.class);
 		}
 		return driver;
 
