@@ -23,27 +23,16 @@ public class AboutUs_Page extends BasePage{
 		super();
 	}
 	
-	public void assertAccordionTextField() {
-		String accordionText01 = "We work with companies, financial institutions, funds and governments to";
-		String accordionText02 = "We are a people business. Being best in class in the eyes of our clients means ";
-		String accordionText03 = "Investing in our clients and empowering our teams – whilst vital – are not enough to ";
-		
-		Assert.assertTrue(textfield_Accordion01.getText().contains(accordionText01));
-		Assert.assertTrue(textfield_Accordion02.getText().contains(accordionText02));
-		Assert.assertTrue(textfield_Accordion03.getText().contains(accordionText03));
+	public void assertAccordionTextField() { 
+		Assert.assertTrue(textfield_Accordion01css.getAttribute("style").contains("block"));		
+		Assert.assertTrue(textfield_Accordion02.getAttribute("style").contains("block"));
+		Assert.assertTrue(textfield_Accordion03.getAttribute("style").contains("block"));
 	}
 	
 	public void assertAccordionTextFieldClosed() {
-		//I will be better using the style display = block to assert the text block as it changes when expanded
-		
-		String accordionText01 = "We work with companies, financial institutions, funds and governments to";
-		String accordionText02 = "We are a people business. Being best in class in the eyes of our clients means ";
-		String accordionText03 = "Investing in our clients and empowering our teams – whilst vital – are not enough to ";
-		
-		String styleStatus = textfield_Accordion01css.getAttribute("style");
-		System.out.println(styleStatus);
-		Assert.assertFalse(textfield_Accordion02.getText().contains(accordionText02));
-		Assert.assertFalse(textfield_Accordion03.getText().contains(accordionText03));		
+		Assert.assertTrue(textfield_Accordion01css.getAttribute("style").contains("none"));
+		Assert.assertTrue(textfield_Accordion02.getAttribute("style").contains("none"));
+		Assert.assertTrue(textfield_Accordion03.getAttribute("style").contains("none"));		
 	}
 	
 	public void checkAccordionWidgetIsClosed() {
@@ -72,6 +61,28 @@ public class AboutUs_Page extends BasePage{
 			System.out.println("already open");
 		}
 	}
+		
+		public void clickOnOpenedAccordionTabs() throws InterruptedException {
+			if (textfield_Accordion01css.getAttribute("style").contains("block")) {
+				jsClick(tab_Accordion01);
+			}
+			else {
+				System.out.println("already open");
+			}
+			if (textfield_Accordion02.getAttribute("style").contains("block")) {
+				jsClick(tab_Accordion02);
+			}
+			else {
+				System.out.println("already open");
+			}
+			if (textfield_Accordion03.getAttribute("style").contains("block")) {
+				jsClick(tab_Accordion03);
+				Thread.sleep(9000);
+			}
+			else {
+				System.out.println("already open");
+			}
+	}
 	
 	public void clickOnSingleTab(String tabNumber) throws InterruptedException {
 		String accordionText01 = "We work with companies, financial institutions, funds and governments to";
@@ -97,13 +108,69 @@ public class AboutUs_Page extends BasePage{
 					Assert.assertTrue(textfield_Accordion03.getText().contains(accordionText03));
 				}
 				break;
-		}
-		
+		}		
 	}
 		
+	public void clickOnAllAccordTabs() throws InterruptedException {
+		jsClick(tab_Accordion01);
+		jsClick(tab_Accordion02);
+		jsClick(tab_Accordion03);
+		Thread.sleep(9000);
+	}
+	
+	public void clickOnOpenClosedAccordionTabs(String tabStyle) throws InterruptedException {
+		switch(tabStyle) {
+			case "closed":
+				if (textfield_Accordion01css.getAttribute("style").contains("none")) {
+					jsClick(tab_Accordion01);
+				}
+				else {
+					System.out.println("already open");
+				}
+				if (textfield_Accordion02.getAttribute("style").contains("none")) {
+					jsClick(tab_Accordion02);
+				}
+				else {
+					System.out.println("already open");
+				}
+				if (textfield_Accordion03.getAttribute("style").contains("none")) {
+					jsClick(tab_Accordion03);
+					Thread.sleep(9000);
+				}
+				else {
+					System.out.println("already open");
+				}
+				break;
 		
+			case "open":
+				if (textfield_Accordion01css.getAttribute("style").contains("block")) {
+					jsClick(tab_Accordion01);
+				}
+				else {
+					System.out.println("already open");
+				}
+				if (textfield_Accordion02.getAttribute("style").contains("block")) {
+					jsClick(tab_Accordion02);
+				}
+				else {
+					System.out.println("already open");
+				}
+				if (textfield_Accordion03.getAttribute("style").contains("block")) {
+					jsClick(tab_Accordion03);
+					Thread.sleep(9000);
+				}
+				else {
+					System.out.println("already open");
+				}
+				break;
+		}
+	}
 		
-
-
-
+	
 }
+		
+		
+
+
+
+

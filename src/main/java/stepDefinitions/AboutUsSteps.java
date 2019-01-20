@@ -25,15 +25,8 @@ public class AboutUsSteps extends DriverFactory{
 	}
 	
 	@When("^I click on each \"([^\"]*)\" accordions segments$")
-	public void i_click_on_each_accordions_segments(String arg1) throws Throwable {
-		String status = "closed";
-		if(arg1.equals(status)) {
-			aboutUsPage.clickOnClosedAccordionTabs();
-		}
-		else {
-			System.out.println("Need to add click on all open tabs method");
-		}
-
+	public void i_click_on_each_accordions_segments(String styleStatus) throws Throwable {
+		aboutUsPage.clickOnOpenClosedAccordionTabs(styleStatus);
 	}
 
 	@Then("^the correct content will be displayed$")
@@ -64,12 +57,12 @@ public class AboutUsSteps extends DriverFactory{
 
 	@Given("^I click on each of the accordions segments$")
 	public void i_click_on_each_of_the_accordions_segments() throws Throwable {
-
+		aboutUsPage.clickOnAllAccordTabs();
 	}
 
 	@When("^I click on each \"([^\"]*)\" accordion segment$")
-	public void i_click_on_each_accordion_segment(String arg1) throws Throwable {
-
+	public void i_click_on_each_accordion_segment(String styleStatus) throws Throwable {
+		aboutUsPage.clickOnOpenClosedAccordionTabs(styleStatus);
 	}
 
 	@Given("^\"([^\"]*)\" has been opened$")

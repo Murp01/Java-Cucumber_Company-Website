@@ -5,13 +5,11 @@ Upon clicking on the subject header the content will be displayed below.  The co
 when clicked on will redirect to another webpage.  Each segment will remain open when another has been clicked
 on.  When arriving on a webage that contains an accordion feature all segments will be closed by default
 
-
 Scenario: Open all accordions segments
 	Given I am on the "https://www.linklaters.com/en/about-us" page
 	When I click on each "closed" accordions segments
 	Then the correct content will be displayed
 	
-@Testme
 Scenario: Upon arriving on the page the accordion will be closed by default
 	Given I am on the "https://www.linklaters.com/en/about-us" page
 	And "segment01" is open
@@ -19,10 +17,11 @@ Scenario: Upon arriving on the page the accordion will be closed by default
 	And I click the "back" browser button
 	Then all accordion segments will be closed
 	
+@Testme
 Scenario: Close all segments of the accordion widget
 	Given I am on the "https://www.linklaters.com/en/about-us" page
 	And I click on each of the accordions segments
-	When I click on each "Open" accordion segment
+	When I click on each "open" accordion segment
 	Then all accordion segments will be closed
 	
 Scenario:  All links within accordion's content will direct to the correct destination page
