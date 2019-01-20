@@ -10,6 +10,8 @@ import utils.DriverFactory;
 
 public class AboutUsSteps extends DriverFactory{
 	
+
+	
 	@Given("^user navigates to \"([^\"]*)\" website$")
 	public void user_navigates_to_website(String url) throws Throwable {
 		getDriver().get(url);

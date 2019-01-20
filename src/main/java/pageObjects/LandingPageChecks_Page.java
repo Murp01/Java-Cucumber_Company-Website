@@ -24,6 +24,7 @@ public class LandingPageChecks_Page extends BasePage {
 		}
 	}	
 	
+	
 	public void clickOnPrimaryNavLink(String primNavLink) {
 		switch(primNavLink) {
 		case "About Us":
