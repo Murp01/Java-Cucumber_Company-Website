@@ -29,5 +29,10 @@ public class LandingPageChecks_Steps extends DriverFactory {
 		landingPageChecksPage.assertPageUrl(pageURL);
 		landingPageChecksPage.assertPageTitle(pageTitle);
 	}
+	
+	@When("^I hover over \"([^\"]*)\" and select \"([^\"]*)\" from the secondary navigation$")
+	public void i_hover_over_and_select_from_the_secondary_navigation(String arg1, String arg2) throws Throwable {
+
+	}
 
 }

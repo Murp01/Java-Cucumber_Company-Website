@@ -6,14 +6,15 @@ Scenario Outline: I want the title and the URL to be correct when accessing page
 	When I click on "<primarynavpage>" from the primary navigation
 	Then the "<url>" and "<title>" will be correctly formatted
 	Examples:
-	|	startpage		|	primarynavpage			|	title					|	url																							|
+	|	startpage		|	primarynavpage			|	title					|	url								|
 	|	homepage		|	About Us				|	About Us				|	About Us						|
 	
 Scenario Outline: I want the title and url to be correct when accessing pages from the secondary navigation bar
 	Given I start on the "<startpage>" page
-	When I click on "<secondarynavpage>" from the primary navigation
+	When I hover over "<primarynavpage>" and select "<secondarynavpage>" from the secondary navigation
+	#When I click on "<secondarynavpage>" from the primary navigation
 	Then the "<url>" and "<title>" will be correctly formatted
 	Examples:
-	|	startpage		|	secondarynavpage		|	title					|	url																							|
-	|	homepage		|	About Us				|	About Us | Linklaters	|	https://www.linklaters.com/en/about-us						|						
+	|	startpage		|	primarynavpage		|	secondarynavpage		|	title					|	url										|
+	|	homepage		|	About Us			|	Alumni					|	About Us | Linklaters	|	https://www.linklaters.com/en/about-us	|						
 	

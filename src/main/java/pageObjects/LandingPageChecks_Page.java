@@ -54,5 +54,15 @@ public class LandingPageChecks_Page extends BasePage {
 			break;
 		}
 	}
+	
+	public void clickOnSecondaryNavLink(String secNav) {
+		switch(secNav) {
+		case "Alumni":
+			//add hover and click
+			break;
+		}
+	}
+	
+
 
 }
