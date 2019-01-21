@@ -20,13 +20,14 @@ public class LandingPageChecks_Steps extends DriverFactory {
 	}
 
 	@When("^I click on \"([^\"]*)\" from the primary navigation$")
-	public void i_click_on_from_the_primary_navigation(String arg1) throws Throwable {
-
+	public void i_click_on_from_the_primary_navigation(String primNavLink) throws Throwable {
+		landingPageChecksPage.clickOnPrimaryNavLink(primNavLink);
 	}
 
 	@Then("^the \"([^\"]*)\" and \"([^\"]*)\" will be correctly formatted$")
-	public void the_and_will_be_correctly_formatted(String arg1, String arg2) throws Throwable {
-
+	public void the_and_will_be_correctly_formatted(String pageURL, String pageTitle) throws Throwable {
+		landingPageChecksPage.assertPageUrl(pageURL);
+		landingPageChecksPage.assertPageTitle(pageTitle);
 	}
 
 }
