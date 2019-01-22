@@ -1,4 +1,4 @@
 Feature: Chatbot
 
 Scenario: Receive a link from the chatbot
-	Given user navigates to "<url>" website
+	Given I am on the "https://www.linklaters.com/en/about-us" page

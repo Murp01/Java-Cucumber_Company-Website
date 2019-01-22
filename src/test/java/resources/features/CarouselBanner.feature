@@ -16,7 +16,7 @@ Scenario Outline: Click on each tab from within a carousel category
 	
 	Examples:
 	|	category			|	secondslidechoice	| assertedslide	|
-	|	category01			|	slide02				|	slide03		|
+	|	category01			|	slide01				|	slide01		|
 	| 	category01			|	slide03				|	slide03		|
 	|	category03			|	slide01				|	slide01		|
 	
