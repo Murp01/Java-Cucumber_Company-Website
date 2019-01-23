@@ -19,12 +19,12 @@ public class EventPage_Steps extends DriverFactory {
 
 	@When("^I enter a search term that matches no events$")
 	public void i_enter_a_search_term_that_matches_no_events() throws Throwable {
-
+		eventsPage.inputTextIntoNameField("faspdofjap;;;;''@");
 	}
 
 	@Then("^a message alerting the user that there are no search results will be displayed$")
 	public void a_message_alerting_the_user_that_there_are_no_search_results_will_be_displayed() throws Throwable {
-
+		eventsPage.assertNoResultsFoundMessage();
 	}
 
 	@When("^I select \"([^\"]*)\" from the practice dropdown box$")

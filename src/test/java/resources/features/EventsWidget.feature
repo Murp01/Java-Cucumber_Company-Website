@@ -1,6 +1,6 @@
 Feature: Events Widget
 
-@LoadPage
+
 Scenario Outline: While searching for an event by name all results matching the search term will be displayed
 	Given I am on the "https://www.linklaters.com/en/insights/events" page
 	When I enter "<searchterm>" into the Event Widgets Name field
@@ -10,6 +10,7 @@ Scenario Outline: While searching for an event by name all results matching the 
 	|	searchterm	|
 	|	and			|
 	
+@LoadPage
 Scenario: while using a search term that does not match any events a search failed message will be displayed
 	Given I am on the "https://www.linklaters.com/en/insights/events" page
 	When I enter a search term that matches no events

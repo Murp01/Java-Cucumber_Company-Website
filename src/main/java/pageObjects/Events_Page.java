@@ -18,7 +18,7 @@ public class Events_Page extends BasePage {
 	public @FindBy(css = "div[class='col-md-6 search__eventResultLeft']") WebElement container_EventReturnedResultsCSS;
 	public @FindBy(xpath = "(//*[contains(text(),'view this event')])[i]") WebElement link_ViewEventLink;
 	public @FindBy(xpath = "//div[@class='col-md-7']") WebElement container_ArticlePageDescription;
-	
+	public @FindBy(xpath = "//div[@class='searchResults cardRow']") WebElement container_NoSearchResultsMessage;	
 
 	
 
@@ -26,9 +26,14 @@ public class Events_Page extends BasePage {
 		super();
 	}
 	
+	public void assertNoResultsFoundMessage() {
+		Assert.assertTrue(container_NoSearchResultsMessage.getText().contains("Your search did not return any results."));
+		//Maybe add data from an Excel sheet rather than the string
+	}
+	
 	public void inputTextIntoNameField(String name) throws InterruptedException{
 		textbox_NameSearch.sendKeys(name);
-		Thread.sleep(10000);
+		Thread.sleep(4000);
 	}
 	
 	public void assertEventsNameSearchResultsContainString(String name) throws InterruptedException{
