@@ -1,13 +1,14 @@
 Feature: Events Widget
 
+@LoadPage
 Scenario Outline: While searching for an event by name all results matching the search term will be displayed
 	Given I am on the "https://www.linklaters.com/en/insights/events" page
 	When I enter "<searchterm>" into the Event Widgets Name field
 	Then all retrieved search results will contain the "<searchterm>"
-	
+	#This test fails because this search also returns article page search terms.  To successfully automate I would need to build an if statement that will click if can't find search term
 	Examples: 
 	|	searchterm	|
-	|	the			|
+	|	and			|
 	
 Scenario: while using a search term that does not match any events a search failed message will be displayed
 	Given I am on the "https://www.linklaters.com/en/insights/events" page

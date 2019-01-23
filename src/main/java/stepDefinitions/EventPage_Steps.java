@@ -8,13 +8,13 @@ import utils.DriverFactory;
 public class EventPage_Steps extends DriverFactory {
 	
 	@When("^I enter \"([^\"]*)\" into the Event Widgets Name field$")
-	public void i_enter_into_the_Event_Widgets_Name_field(String arg1) throws Throwable {
-
+	public void i_enter_into_the_Event_Widgets_Name_field(String name) throws Throwable {
+		eventsPage.inputTextIntoNameField(name);
 	}
 
 	@Then("^all retrieved search results will contain the \"([^\"]*)\"$")
-	public void all_retrieved_search_results_will_contain_the(String arg1) throws Throwable {
-
+	public void all_retrieved_search_results_will_contain_the(String name) throws Throwable {
+		eventsPage.assertEventsNameSearchResultsContainString(name);
 	}
 
 	@When("^I enter a search term that matches no events$")
