@@ -24,6 +24,8 @@ public class AboutUs_Page extends BasePage{
 		super();
 	}
 	
+
+	
 	public void assertAccordionTextField() { 
 		Assert.assertTrue(textfield_Accordion01css.getAttribute("style").contains("block"));		
 		Assert.assertTrue(textfield_Accordion02.getAttribute("style").contains("block"));

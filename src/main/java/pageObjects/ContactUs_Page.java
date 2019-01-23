@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 public class ContactUs_Page extends BasePage {
 	
 	public @FindBy(xpath = "//button[@title='Select location']") WebElement dropBox_Select;
+	public @FindBy(xpath = "//div[@class='mapContact__controlContainer bg-brand-magenta-dark']") WebElement container_ContactUsBox;
+	
 
 	public ContactUs_Page() throws IOException {
 		super();
@@ -18,6 +20,10 @@ public class ContactUs_Page extends BasePage {
 		dropBox_Select.click();
 		driver.findElement(By.linkText(location)).click();;		
 		return new ContactUs_Page();	
+	}
+	
+	public void assertLocationDetailsAppearinBox(String location) {
+		
 	}
 
 }

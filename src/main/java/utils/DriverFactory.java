@@ -13,6 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 import pageObjects.BasePage;
 import pageObjects.Careers_Page;
 import pageObjects.ContactUs_Page;
+import pageObjects.Events_Page;
 import pageObjects.FindALawyer_Page;
 import pageObjects.Home_Page;
 import pageObjects.LandingPageChecks_Page;
@@ -32,6 +33,7 @@ public class DriverFactory {
 	public static FindALawyer_Page findALawyerPage;
 	public static ContactUs_Page contactUsPage;
 	public static LandingPageChecks_Page landingPageChecksPage;
+	public static Events_Page eventsPage;
 
 	public WebDriver getDriver() {
 
@@ -87,6 +89,7 @@ public class DriverFactory {
 			findALawyerPage = PageFactory.initElements(driver, FindALawyer_Page.class);
 			contactUsPage = PageFactory.initElements(driver, ContactUs_Page.class);
 			landingPageChecksPage = PageFactory.initElements(driver, LandingPageChecks_Page.class);
+			eventsPage = PageFactory.initElements(driver, Events_Page.class);
 		}
 		return driver;
 

@@ -30,6 +30,37 @@ public class HomePage_Steps extends DriverFactory{
 	public void the_carousel_slide_will_change() throws Throwable {
 		homePage.assertSlideHasChanged();
 	}
+	
+	@Given("^\"([^\"]*)\" tab is selected$")
+	public void tab_is_selected(String category) throws Throwable {
+		homePage.selectCarouselTab(category);
+	}
+
+	@When("^I click on \"([^\"]*)\" tab$")
+	public void i_click_on_tab(String slide) throws Throwable {
+		homePage.selectSlideFromCarouselTab(slide);
+	}
+
+	@Then("^\"([^\"]*)\" will be displayed$")
+	public void will_be_displayed(String arg1) throws Throwable {
+
+	}
+
+	@Given("^\"([^\"]*)\" is selected with \"([^\"]*)\" selected$")
+	public void is_selected_with_selected(String arg1, String arg2) throws Throwable {
+
+	}
+
+	@When("^I click on the \"([^\"]*)\" link from the slide$")
+	public void i_click_on_the_link_from_the_slide(String arg1) throws Throwable {
+
+	}
+
+	@Then("^the \"([^\"]*)\" webpage will be opened$")
+	public void the_webpage_will_be_opened(String arg1) throws Throwable {
+
+	}
+
 }
 	
 
