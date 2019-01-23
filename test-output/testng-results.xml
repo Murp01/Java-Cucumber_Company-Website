@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="1" passed="0">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="71757" started-at="2019-01-23T15:26:47Z" finished-at="2019-01-23T15:27:58Z">
+  <suite name="Default suite" duration-ms="51549" started-at="2019-01-23T15:45:59Z" finished-at="2019-01-23T15:46:50Z">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:runners.MainRunner@6e06451e]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test name="Default test" duration-ms="71757" started-at="2019-01-23T15:26:47Z" finished-at="2019-01-23T15:27:58Z">
+    <test name="Default test" duration-ms="51549" started-at="2019-01-23T15:45:59Z" finished-at="2019-01-23T15:46:50Z">
       <class name="runners.MainRunner">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:runners.MainRunner@6e06451e]" name="setUpClass" is-config="true" duration-ms="552" started-at="2019-01-23T15:26:47Z" finished-at="2019-01-23T15:26:47Z">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:runners.MainRunner@6e06451e]" name="setUpClass" is-config="true" duration-ms="539" started-at="2019-01-23T15:45:59Z" finished-at="2019-01-23T15:45:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method status="FAIL" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:runners.MainRunner@6e06451e]" name="feature" duration-ms="70224" started-at="2019-01-23T15:26:47Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2019-01-23T15:27:58Z">
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:runners.MainRunner@6e06451e]" name="feature" duration-ms="49967" started-at="2019-01-23T15:45:59Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2019-01-23T15:46:49Z">
           <params>
             <param index="0">
               <value>
@@ -22,52 +22,10 @@
               </value>
             </param>
           </params>
-          <exception class="cucumber.runtime.CucumberException">
-            <message>
-              <![CDATA[java.lang.AssertionError]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[cucumber.runtime.CucumberException: java.lang.AssertionError
-	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
-	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at org.testng.TestRunner.privateRun(TestRunner.java:782)
-	at org.testng.TestRunner.run(TestRunner.java:632)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
-	at org.testng.TestNG.run(TestNG.java:1064)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: java.lang.AssertionError
-	at org.junit.Assert.fail(Assert.java:86)
-	at org.junit.Assert.assertTrue(Assert.java:41)
-	at org.junit.Assert.assertTrue(Assert.java:52)
-	at pageObjects.Events_Page.assertEventsNameSearchResultsContainString(Events_Page.java:63)
-	at stepDefinitions.EventPage_Steps.all_retrieved_search_results_will_contain_the(EventPage_Steps.java:17)
-	at ✽.Then all retrieved search results will contain the "and"(EventsWidget.feature:7)
-]]>
-            </full-stacktrace>
-          </exception> <!-- cucumber.runtime.CucumberException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:runners.MainRunner@6e06451e]" name="tearDownClass" is-config="true" duration-ms="759" started-at="2019-01-23T15:27:58Z" finished-at="2019-01-23T15:27:58Z">
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:runners.MainRunner@6e06451e]" name="tearDownClass" is-config="true" duration-ms="813" started-at="2019-01-23T15:46:49Z" finished-at="2019-01-23T15:46:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
