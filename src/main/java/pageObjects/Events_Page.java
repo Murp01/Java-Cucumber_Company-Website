@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 
 
@@ -18,7 +19,9 @@ public class Events_Page extends BasePage {
 	public @FindBy(css = "div[class='col-md-6 search__eventResultLeft']") WebElement container_EventReturnedResultsCSS;
 	public @FindBy(xpath = "(//*[contains(text(),'view this event')])[i]") WebElement link_ViewEventLink;
 	public @FindBy(xpath = "//div[@class='col-md-7']") WebElement container_ArticlePageDescription;
-	public @FindBy(xpath = "//div[@class='searchResults cardRow']") WebElement container_NoSearchResultsMessage;	
+	public @FindBy(xpath = "//div[@class='searchResults cardRow']") WebElement container_NoSearchResultsMessage;
+	public @FindBy(xpath = "//*[contains(text(), 'Practice')]/span") WebElement dropdownBox_Practice;
+
 
 	
 
@@ -35,6 +38,8 @@ public class Events_Page extends BasePage {
 		textbox_NameSearch.sendKeys(name);
 		Thread.sleep(4000);
 	}
+	
+
 	
 	public void assertEventsNameSearchResultsContainString(String name) throws InterruptedException{
 		while (button_LoadMore.isDisplayed()){
@@ -68,7 +73,26 @@ public class Events_Page extends BasePage {
 				//Assert.assertTrue(returnProfile.get(i).getText().contains(name));
 			}
 		}
-
+	}
+	
+	public void selectOptionFromPracticeDropDownList(String option) throws InterruptedException {
+		switch(option) {
+		case "Banking":
+/*			Select drpBox = new Select(dropdownBox_Practice);
+			drpBox.selectByVisibleText(option);	*/		
+			dropdownBox_Practice.click();
+			//driver.findElement(By.linkText(option)).click();
+			Thread.sleep(9000);
+			break;
+		case "Business and Human Rights":
+			
+			break;
+			
+		case "Capital Markets":
+			
+			break;
+			
+		}
 	}
 
 }
