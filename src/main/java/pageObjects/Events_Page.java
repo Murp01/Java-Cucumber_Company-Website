@@ -20,8 +20,11 @@ public class Events_Page extends BasePage {
 	public @FindBy(xpath = "(//*[contains(text(),'view this event')])[i]") WebElement link_ViewEventLink;
 	public @FindBy(xpath = "//div[@class='col-md-7']") WebElement container_ArticlePageDescription;
 	public @FindBy(xpath = "//div[@class='searchResults cardRow']") WebElement container_NoSearchResultsMessage;
-	public @FindBy(xpath = "//*[contains(text(), 'Practice')]/span") WebElement dropdownBox_Practice;
-
+	public @FindBy(xpath = "//select[@name='practice']") WebElement dropdownBox_Practice;
+	public @FindBy(xpath = "/html/body/div[6]/div/div/div[1]/div/form/div[2]/button") WebElement button_Practice;
+	
+	
+	//*[contains(text(), 'Practice')]/span
 
 	
 
@@ -78,12 +81,13 @@ public class Events_Page extends BasePage {
 	public void selectOptionFromPracticeDropDownList(String option) throws InterruptedException {
 		switch(option) {
 		case "Banking":
-/*			Select drpBox = new Select(dropdownBox_Practice);
-			drpBox.selectByVisibleText(option);	*/		
-			dropdownBox_Practice.click();
-			//driver.findElement(By.linkText(option)).click();
+			button_Practice.click();
+			driver.findElement(By.xpath("//div[@class='btn-group bootstrap-select show-tick dropup open']//li[@data-original-index='0']//a[@tabindex='0']")).click();
+/*			Thread.sleep(4000);
+			Select drpBox = new Select(driver.findElement(By.xpath("//select[@name='practice']")));
+			drpBox.selectByVisibleText(option);			
 			Thread.sleep(9000);
-			break;
+			break;*/
 		case "Business and Human Rights":
 			
 			break;
@@ -94,5 +98,7 @@ public class Events_Page extends BasePage {
 			
 		}
 	}
+	
+
 
 }
