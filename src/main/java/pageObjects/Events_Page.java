@@ -14,6 +14,12 @@ public class Events_Page extends BasePage {
 	
 	String practiceXpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Practice']/option";
 	String locationXpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Location']/option";
+	String eventTenseXpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Only Events in the Future']/option";
+	String topicXpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Topic']/option";
+	String typeXpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Type']/option";
+	String speakerXpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Speaker']/option";
+	String sortXpath = "//div[@class='btn-group bootstrap-select']//select[@title='Sort by']/option";
+
 	
 	public @FindBy(xpath = "//input[@placeholder='Name']") WebElement textbox_NameSearch;
 	public @FindBy(xpath = "//div[@class='searchResults cardRow']") WebElement container_EventSearchResults;
@@ -106,6 +112,61 @@ public class Events_Page extends BasePage {
 			selectOptionFromSpecifiedDropDownList(locationXpath, option);
 			break;		
 		}
+	}
+	
+	public void selectOptionFromTenseDropDownList(String option) throws InterruptedException {
+		switch(option) {
+		case "Future Events":
+			selectOptionFromSpecifiedDropDownList(eventTenseXpath, option);
+			break;
+		case "Past Events":
+			selectOptionFromSpecifiedDropDownList(eventTenseXpath, option);
+			break;
+		}
+	}
+	
+	public void selectOptionFromTopicDropDownList(String option) throws InterruptedException {
+		switch(option) {
+		case "Brexit":
+			selectOptionFromSpecifiedDropDownList(topicXpath, option);
+			break;
+		case "Diversity":
+			selectOptionFromSpecifiedDropDownList(topicXpath, option);
+			break;
+		}
+	}
+	
+	public void selectOptionFromTypeDropDownList(String option) throws InterruptedException {
+		switch(option) {
+		case "DSP":
+			selectOptionFromSpecifiedDropDownList(typeXpath, option);
+			break;
+		case "FRG":
+			selectOptionFromSpecifiedDropDownList(typeXpath, option);
+			break;
+		}		
+	}
+	
+	public void selectOptionFromSpeakerDrownList(String option) throws InterruptedException {
+		switch(option) {
+		case "Andreas Dehio":
+			selectOptionFromSpecifiedDropDownList(speakerXpath, option);
+			break;
+		case "Andrew Marshall":
+			selectOptionFromSpecifiedDropDownList(speakerXpath, option);
+			break;
+		}		
+	}
+	
+	public void selectOptionFromSortDrownList(String option) throws InterruptedException {
+		switch(option) {
+		case "Andreas Dehio":
+			selectOptionFromSpecifiedDropDownList(speakerXpath, option);
+			break;
+		case "Andrew Marshall":
+			selectOptionFromSpecifiedDropDownList(speakerXpath, option);
+			break;
+		}		
 	}
 	
 

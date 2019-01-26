@@ -40,23 +40,23 @@ public class EventPage_Steps extends DriverFactory {
 	}
 
 	@When("^I select \"([^\"]*)\" from the events in future box$")
-	public void i_select_from_the_events_in_future_box(String arg1) throws Throwable {
-
+	public void i_select_from_the_events_in_future_box(String option) throws Throwable {
+		eventsPage.selectOptionFromTenseDropDownList(option);
 	}
 
 	@When("^I select \"([^\"]*)\" from the topics dropdown box$")
-	public void i_select_from_the_topics_dropdown_box(String arg1) throws Throwable {
-
+	public void i_select_from_the_topics_dropdown_box(String option) throws Throwable {
+		eventsPage.selectOptionFromTopicDropDownList(option);
 	}
 
 	@When("^I select \"([^\"]*)\" from the type dropdown box$")
-	public void i_select_from_the_type_dropdown_box(String arg1) throws Throwable {
-
+	public void i_select_from_the_type_dropdown_box(String option) throws Throwable {
+		eventsPage.selectOptionFromTypeDropDownList(option);
 	}
 
 	@When("^I select \"([^\"]*)\" from the speaker dropdown box$")
-	public void i_select_from_the_speaker_dropdown_box(String arg1) throws Throwable {
-
+	public void i_select_from_the_speaker_dropdown_box(String option) throws Throwable {
+		eventsPage.selectOptionFromSpeakerDrownList(option);
 	}
 
 	@Then("^all retrieved search results will meet the search criteria$")
