@@ -24,6 +24,16 @@ public class BasePage extends DriverFactory {
 	protected WebDriverWait wait;
 	protected JavascriptExecutor jsExecutor;
 	
+	public void selectOptionFromSpecifiedDropDownList(String xpath, String option) throws InterruptedException {
+		List<WebElement> myElements01 = driver.findElements(By.xpath(xpath));
+		for (WebElement e : myElements01) {
+			if (e.getText().equalsIgnoreCase(option)) {
+				e.click(); 
+			}
+		}
+			Thread.sleep(9000);
+	}
+	
 	public void navigateBrowser (String navigate) throws InterruptedException {
 		//move to base page
 		switch(navigate) {

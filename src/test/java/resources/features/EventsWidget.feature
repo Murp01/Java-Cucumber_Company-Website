@@ -28,8 +28,8 @@ Scenario Outline: The correct search results will appear with a combination of s
 	Then all retrieved search results will meet the search criteria
 	
 	Examples:
-	|	searchterm	|	practiceoption	|	locationoption	|	occuranceoption	|	topicoption	|	typeoption	|	speakeroption	|
-	|	The			|	Banking			|	Berlin			|	Past Events		|	Brexit		|	DSP			|	Clive Newall	|
+	|	searchterm	|	practiceoption						|	locationoption		|	occuranceoption	|	topicoption	|	typeoption	|	speakeroption	|
+	|	The			|	Capital Markets						|	Brussels			|	Past Events		|	Brexit		|	DSP			|	Clive Newall	|
 	
 Scenario Outline: Sort the retrieved results by category 
 	Given I am on the "https://www.linklaters.com/en/insights/events" page

@@ -35,8 +35,8 @@ public class EventPage_Steps extends DriverFactory {
 	}
 
 	@When("^I select \"([^\"]*)\" from the locations dropdown box$")
-	public void i_select_from_the_locations_dropdown_box(String arg1) throws Throwable {
-
+	public void i_select_from_the_locations_dropdown_box(String option) throws Throwable {
+		eventsPage.selectOptionFromLocationDropDownList(option);
 	}
 
 	@When("^I select \"([^\"]*)\" from the events in future box$")

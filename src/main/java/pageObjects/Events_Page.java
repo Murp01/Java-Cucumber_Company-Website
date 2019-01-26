@@ -12,6 +12,9 @@ import org.openqa.selenium.support.ui.Select;
 
 public class Events_Page extends BasePage {
 	
+	String practiceXpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Practice']/option";
+	String locationXpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Location']/option";
+	
 	public @FindBy(xpath = "//input[@placeholder='Name']") WebElement textbox_NameSearch;
 	public @FindBy(xpath = "//div[@class='searchResults cardRow']") WebElement container_EventSearchResults;
 	public @FindBy(xpath = "//span[@class='ctaLoadMore__text']") WebElement button_LoadMore;
@@ -20,7 +23,7 @@ public class Events_Page extends BasePage {
 	public @FindBy(xpath = "(//*[contains(text(),'view this event')])[i]") WebElement link_ViewEventLink;
 	public @FindBy(xpath = "//div[@class='col-md-7']") WebElement container_ArticlePageDescription;
 	public @FindBy(xpath = "//div[@class='searchResults cardRow']") WebElement container_NoSearchResultsMessage;
-	public @FindBy(xpath = "//select[@name='practice']") WebElement dropdownBox_Practice;
+	public @FindBy(xpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Practice']/option") WebElement dropdownBox_Practice;
 	public @FindBy(xpath = "/html/body/div[6]/div/div/div[1]/div/form/div[2]/button") WebElement button_Practice;
 
 
@@ -78,23 +81,30 @@ public class Events_Page extends BasePage {
 	
 	public void selectOptionFromPracticeDropDownList(String option) throws InterruptedException {
 		switch(option) {
-		case "Banking":
-		List<WebElement> myElements = driver.findElements(By.xpath("//div[@class='btn-group bootstrap-select show-tick']//select[@title='Practice']/option"));
-		for (WebElement e : myElements) {
-			if (e.getText().equalsIgnoreCase(option)) {
-				e.click(); 
-			}
-		}
-			Thread.sleep(9000);
+		case "Banking": 
+			selectOptionFromSpecifiedDropDownList(practiceXpath, option);
 			break;
 		case "Business and Human Rights":
-			
-			break;
-			
+			selectOptionFromSpecifiedDropDownList(practiceXpath, option);
+			break;			
 		case "Capital Markets":
-			
+			selectOptionFromSpecifiedDropDownList(practiceXpath, option);
+			break;		
+		}
+	}
+	
+	public void selectOptionFromLocationDropDownList(String option) throws InterruptedException {
+		switch(option) {
+		case "Brussels": 
+			System.out.println("Brussels case switched to");
+			selectOptionFromSpecifiedDropDownList(locationXpath, option);
 			break;
-			
+		case "Hong Kong":
+			selectOptionFromSpecifiedDropDownList(locationXpath, option);
+			break;			
+		case "Berlin":
+			selectOptionFromSpecifiedDropDownList(locationXpath, option);
+			break;		
 		}
 	}
 	
