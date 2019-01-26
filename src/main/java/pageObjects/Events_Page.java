@@ -20,7 +20,7 @@ public class Events_Page extends BasePage {
 	public @FindBy(xpath = "(//*[contains(text(),'view this event')])[i]") WebElement link_ViewEventLink;
 	public @FindBy(xpath = "//div[@class='col-md-7']") WebElement container_ArticlePageDescription;
 	public @FindBy(xpath = "//div[@class='searchResults cardRow']") WebElement container_NoSearchResultsMessage;
-	public @FindBy(xpath = "//*[contains(text(), 'Practice')]/span") WebElement dropdownBox_Practice;
+	public @FindBy(xpath = "//button[@title='Practice']") WebElement dropdownBox_Practice;
 
 
 	
