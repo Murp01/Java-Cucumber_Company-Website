@@ -61,12 +61,19 @@ public class EventPage_Steps extends DriverFactory {
 
 	@Then("^all retrieved search results will meet the search criteria$")
 	public void all_retrieved_search_results_will_meet_the_search_criteria() throws Throwable {
-
+		String searchterm = null;
+		String practiceoption = null;
+		String locationoption = null;
+		String occuranceoption = null;
+		String topicoption = null;
+		String typeoption = null;
+		String speakeroption = null;
+		eventsPage.assertMultipleSearchResultsRetreiveCorrectArticles(searchterm, practiceoption, locationoption, occuranceoption, topicoption, typeoption, speakeroption);
 	}
 
 	@Given("^search results have been retrieved$")
 	public void search_results_have_been_retrieved() throws Throwable {
-
+		
 	}
 
 	@When("^I select \"([^\"]*)\" from the sort dropdown box$")

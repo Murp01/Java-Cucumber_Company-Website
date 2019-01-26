@@ -1,5 +1,7 @@
 Feature: Events Widget
 
+#Need to add a scenario related to selecting multiple options in one drop down box
+
 
 Scenario Outline: While searching for an event by name all results matching the search term will be displayed
 	Given I am on the "https://www.linklaters.com/en/insights/events" page
@@ -18,18 +20,18 @@ Scenario: while using a search term that does not match any events a search fail
 @LoadPage	
 Scenario Outline: The correct search results will appear with a combination of search filters
 	Given I am on the "https://www.linklaters.com/en/insights/events" page
-	When I enter "<searchterm>" into the Event Widgets Name field
+	#When I enter "<searchterm>" into the Event Widgets Name field
 	And I select "<practiceoption>" from the practice dropdown box
 	And I select "<locationoption>" from the locations dropdown box
 	And I select "<occuranceoption>" from the events in future box
-	And I select "<topicoption>" from the topics dropdown box
-	And I select "<typeoption>" from the type dropdown box
+	#And I select "<topicoption>" from the topics dropdown box
+	#And I select "<typeoption>" from the type dropdown box
 	And I select "<speakeroption>" from the speaker dropdown box
-	Then all retrieved search results will meet the search criteria
+	Then all retrieved search results will meet the search criteria #add all examples at end as a parameter
 	
 	Examples:
-	|	searchterm	|	practiceoption						|	locationoption		|	occuranceoption	|	topicoption	|	typeoption	|	speakeroption	|
-	|	The			|	Capital Markets						|	Brussels			|	Past Events		|	Brexit		|	DSP			|	Andrew Marshall 	|
+	|	searchterm	|	practiceoption						|	locationoption		|	occuranceoption		|	topicoption	|	typeoption	|	speakeroption	|
+	|	The			|	Corporate/M&A						|	Brussels			|	Future Events		|	Brexit		|	DSP			|	Ian Hunter	 	|
 	
 Scenario Outline: Sort the retrieved results by category 
 	Given I am on the "https://www.linklaters.com/en/insights/events" page

@@ -95,7 +95,10 @@ public class Events_Page extends BasePage {
 			break;			
 		case "Capital Markets":
 			selectOptionFromSpecifiedDropDownList(practiceXpath, option);
-			break;		
+			break;	
+		case "Corporate/M&A":
+			selectOptionFromSpecifiedDropDownList(practiceXpath, option);			
+			break;
 		}
 	}
 	
@@ -163,10 +166,28 @@ public class Events_Page extends BasePage {
 		case "Andreas Dehio":
 			selectOptionFromSpecifiedDropDownList(speakerXpath, option);
 			break;
-		case "Andrew Marshall":
+		case "Ian Hunter":
 			selectOptionFromSpecifiedDropDownList(speakerXpath, option);
 			break;
 		}		
+	}
+	
+	public void assertMultipleSearchResultsRetreiveCorrectArticles(String searchterm, String practiceoption, String locationoption, 
+			String occuranceoption, String topicoption, String typeoption, String speakeroption) {
+		
+		String searchTerm = "The";
+		String practiceOption = "Corporate/M&A";
+		String locationOption = "Brussels";
+		String occuranceOption = "Future Events";
+		String topicOption = "Brexit";
+		String typeOption = "DSP";
+		String speakerOption = "Ian Hunter";
+		
+		if (searchterm.contains(searchTerm) && practiceoption.contains(practiceOption) && locationoption.contains(locationOption) 
+				&& occuranceoption.equals(occuranceOption) && topicoption.equals(topicOption) && typeoption.equals(typeOption) 
+				&& speakeroption.equals(speakerOption)) { 
+			System.out.println("Condition matches");
+		}
 	}
 	
 
