@@ -79,13 +79,14 @@ public class Events_Page extends BasePage {
 	public void selectOptionFromPracticeDropDownList(String option) throws InterruptedException {
 		switch(option) {
 		case "Banking":
-			button_Practice.click();
-			driver.findElement(By.xpath("//div[@class='btn-group bootstrap-select show-tick dropup open']//li[@data-original-index='0']//a[@tabindex='0']")).click();
-/*			Thread.sleep(4000);
-			Select drpBox = new Select(driver.findElement(By.xpath("//select[@name='practice']")));
-			drpBox.selectByVisibleText(option);			
+		List<WebElement> myElements = driver.findElements(By.xpath("//div[@class='btn-group bootstrap-select show-tick']//select[@title='Practice']/option"));
+		for (WebElement e : myElements) {
+			if (e.getText().equalsIgnoreCase(option)) {
+				e.click(); 
+			}
+		}
 			Thread.sleep(9000);
-			break;*/
+			break;
 		case "Business and Human Rights":
 			
 			break;
