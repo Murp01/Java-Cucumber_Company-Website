@@ -163,13 +163,19 @@ public class Events_Page extends BasePage {
 	
 	public void selectOptionFromSortDrownList(String option) throws InterruptedException {
 		switch(option) {
-		case "Andreas Dehio":
-			selectOptionFromSpecifiedDropDownList(speakerXpath, option);
+		case "Sort A-Z":
+			selectOptionFromSpecifiedDropDownList(sortXpath, option);
 			break;
-		case "Ian Hunter":
-			selectOptionFromSpecifiedDropDownList(speakerXpath, option);
+		case "Sort Z-A":
+			selectOptionFromSpecifiedDropDownList(sortXpath, option);
 			break;
-		}		
+		case "Date (Newest - Oldest)":
+			selectOptionFromSpecifiedDropDownList(sortXpath, option);
+			break;
+		case "Date (Oldest - Newest)":
+			selectOptionFromSpecifiedDropDownList(sortXpath, option);
+			break;
+		}
 	}
 	
 	public void assertMultipleSearchResultsRetreiveCorrectArticles(String searchterm, String practiceoption, String locationoption, 

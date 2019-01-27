@@ -73,12 +73,13 @@ public class EventPage_Steps extends DriverFactory {
 
 	@Given("^search results have been retrieved$")
 	public void search_results_have_been_retrieved() throws Throwable {
-		
+		String xpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Practice']/option";	
+		basePage.selectOptionFromSpecifiedDropDownList(xpath, "Corporate/M&A");
 	}
 
 	@When("^I select \"([^\"]*)\" from the sort dropdown box$")
-	public void i_select_from_the_sort_dropdown_box(String arg1) throws Throwable {
-
+	public void i_select_from_the_sort_dropdown_box(String option) throws Throwable {
+		eventsPage.selectOptionFromSortDrownList(option);
 	}
 
 	@Then("^the results will be sorted in \"([^\"]*)\" order$")

@@ -12,12 +12,13 @@ Scenario Outline: While searching for an event by name all results matching the 
 	|	searchterm	|
 	|	and			|
 	
+
 Scenario: while using a search term that does not match any events a search failed message will be displayed
 	Given I am on the "https://www.linklaters.com/en/insights/events" page
 	When I enter a search term that matches no events
 	Then a message alerting the user that there are no search results will be displayed
+	
 
-@LoadPage	
 Scenario Outline: The correct search results will appear with a combination of search filters
 	Given I am on the "https://www.linklaters.com/en/insights/events" page
 	#When I enter "<searchterm>" into the Event Widgets Name field
@@ -33,11 +34,12 @@ Scenario Outline: The correct search results will appear with a combination of s
 	|	searchterm	|	practiceoption						|	locationoption		|	occuranceoption		|	topicoption	|	typeoption	|	speakeroption	|
 	|	The			|	Corporate/M&A						|	Brussels			|	Future Events		|	Brexit		|	DSP			|	Ian Hunter	 	|
 	
+@LoadPage
 Scenario Outline: Sort the retrieved results by category 
 	Given I am on the "https://www.linklaters.com/en/insights/events" page
 	And search results have been retrieved
 	When I select "<sortselection>" from the sort dropdown box
-	Then the results will be sorted in "<>" order
+	Then the results will be sorted in "<>" order #Need to add assertion to complete test
 	
 	Examples:
 	|	sortselection			|
@@ -46,18 +48,21 @@ Scenario Outline: Sort the retrieved results by category
 	|	Date (Newest - Oldest)	|
 	|	Date (Oldest - Newest)	|	
 	
+
 Scenario: Clearing the search results
 	Given I am on the "https://www.linklaters.com/en/insights/events" page
 	And all filters have been changed and the search query has been returned
 	When I click on the Edit Search button
 	Then the filters will be reset and the default search results are displayed
 	
+
 Scenario: Clicking on the events title will open the event page
 	Given I am on the "https://www.linklaters.com/en/insights/events" page
 	And all filters have been changed and the search query has been returned
 	When I click on the events title
 	Then the correct events page will open
 	
+
 Scenario: Clicking on the events view link will open the event page
 	Given I am on the "https://www.linklaters.com/en/insights/events" page
 	And all filters have been changed and the search query has been returned
