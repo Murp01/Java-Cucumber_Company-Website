@@ -1,7 +1,8 @@
 Feature: Global Site Search
 
+#Add search results page and Step Defs
 
-@LoadPage
+
 Scenario Outline: I can search the entire website with a search term by using a global site search field
 	Given I access the websites homepage
 	When I type "<searchterm>" into the global site search field and click on the search button
@@ -12,10 +13,11 @@ Scenario Outline: I can search the entire website with a search term by using a 
 	|	Gideon				|
 
 	
+@LoadPage
 Scenario Outline: I want the search results to appear below the global site search field as the site autocompletes the search query
 	Given I access the websites homepage
 	When I type "<searchterm>" into the global site search field
-	Then the results will appear below the global site search field as I type the characters in
+	Then the results will appear below the global site search field as I type the characters in #Add step that asserts searchterm contained in result
 	Examples:
 	|	searchterm			|
 	|	Gideon				|
