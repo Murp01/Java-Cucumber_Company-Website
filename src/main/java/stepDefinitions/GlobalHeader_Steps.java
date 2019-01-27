@@ -4,10 +4,10 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utils.DriverFactory;
 
-public class GlobalSiteSearch_Steps extends DriverFactory{
+public class GlobalHeader_Steps extends DriverFactory {
 	
 	@When("^I type \"([^\"]*)\" into the global site search field$")
-	public void i_type_into_the_global_site_search_field(String arg1) throws Throwable {
+	public void i_type_into_the_global_site_search_field(String searchTerm) throws Throwable {
 
 	}
 
@@ -17,8 +17,9 @@ public class GlobalSiteSearch_Steps extends DriverFactory{
 	}
 
 	@When("^I type \"([^\"]*)\" into the global site search field and click on the search button$")
-	public void i_type_into_the_global_site_search_field_and_click_on_the_search_button(String arg1) throws Throwable {
-
+	public void i_type_into_the_global_site_search_field_and_click_on_the_search_button(String searchTerm) throws Throwable {
+		globalHeaderPage.enterSearchTermIntoGlobalSiteSearch(searchTerm);
+		Thread.sleep(9000);
 	}
 
 	@Then("^the search results screen will display a message stating no results have been returned$")
@@ -30,6 +31,12 @@ public class GlobalSiteSearch_Steps extends DriverFactory{
 	public void a_message_will_display_below_the_site_search_field_stating_no_results_have_been_returned() throws Throwable {
 
 	}
+	
 
+	
+	@Then("^the search results screen will open displaying up to (\\d+) articles$")
+	public void the_search_results_screen_will_open_displaying_up_to_articles(int arg1) throws Throwable {
+
+	}
 
 }

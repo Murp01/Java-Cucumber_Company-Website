@@ -9,13 +9,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
-
 import pageObjects.BasePage;
 import pageObjects.Careers_Page;
 import pageObjects.ContactUs_Page;
 import pageObjects.Events_Page;
 import pageObjects.FindALawyer_Page;
-import pageObjects.GlobalSiteSearch_Page;
+import pageObjects.GlobalHeader_Page;
 import pageObjects.Home_Page;
 import pageObjects.LandingPageChecks_Page;
 import pageObjects.NavFindPeople_Page;
@@ -32,10 +31,12 @@ public class DriverFactory {
 	public static Careers_Page careersPage;
 	public static NavFindPeople_Page navFindPeoplePage;
 	public static FindALawyer_Page findALawyerPage;
-	public static ContactUs_Page contactUsPage;
-	public static LandingPageChecks_Page landingPageChecksPage;
+	public static ContactUs_Page contactUsPage;	
 	public static Events_Page eventsPage;
-	public static GlobalSiteSearch_Page globalSiteSearch;
+	public static GlobalHeader_Page globalHeaderPage;
+	
+
+	public static LandingPageChecks_Page landingPageChecksPage;
 
 	public WebDriver getDriver() {
 
@@ -89,10 +90,11 @@ public class DriverFactory {
 			careersPage = PageFactory.initElements(driver, Careers_Page.class);
 			navFindPeoplePage = PageFactory.initElements(driver, NavFindPeople_Page.class);
 			findALawyerPage = PageFactory.initElements(driver, FindALawyer_Page.class);
-			contactUsPage = PageFactory.initElements(driver, ContactUs_Page.class);
-			landingPageChecksPage = PageFactory.initElements(driver, LandingPageChecks_Page.class);
+			contactUsPage = PageFactory.initElements(driver, ContactUs_Page.class);		
 			eventsPage = PageFactory.initElements(driver, Events_Page.class);
-			globalSiteSearch = PageFactory.initElements(driver, GlobalSiteSearch_Page.class);
+			globalHeaderPage = PageFactory.initElements(driver, GlobalHeader_Page.class);
+			
+			landingPageChecksPage = PageFactory.initElements(driver, LandingPageChecks_Page.class);
 		}
 		return driver;
 
