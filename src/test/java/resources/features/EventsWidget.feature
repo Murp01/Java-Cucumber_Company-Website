@@ -34,7 +34,7 @@ Scenario Outline: The correct search results will appear with a combination of s
 	|	searchterm	|	practiceoption						|	locationoption		|	occuranceoption		|	topicoption	|	typeoption	|	speakeroption	|
 	|	The			|	Corporate/M&A						|	Brussels			|	Future Events		|	Brexit		|	DSP			|	Ian Hunter	 	|
 	
-@LoadPage
+
 Scenario Outline: Sort the retrieved results by category 
 	Given I am on the "https://www.linklaters.com/en/insights/events" page
 	And search results have been retrieved

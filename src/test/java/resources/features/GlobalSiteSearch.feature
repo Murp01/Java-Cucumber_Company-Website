@@ -1,6 +1,6 @@
 Feature: Global Site Search
 
-
+@LoadPage
 Scenario Outline: I can search the entire website with a search term by using a global site search field
 	Given I access the websites homepage
 	When I type "<searchterm>" into the global site search field and click on the search button
