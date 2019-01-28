@@ -37,9 +37,15 @@ public class GlobalHeader_Steps extends DriverFactory {
 	}
 	
 	
+	@Then("^each result will contain the \"([^\"]*)\"$")
+	public void each_result_will_contain_the(String searchTerm) throws Throwable {
+		globalHeaderPage.assertAllSearchPredictionsContainSearchTerm(searchTerm);
+	}
+	
+	
 	@Then("^the results will appear below the global site search field as I type the characters in$")
 	public void the_results_will_appear_below_the_global_site_search_field_as_I_type_the_characters_in() throws Throwable {
-
+		
 	}
 	
 	

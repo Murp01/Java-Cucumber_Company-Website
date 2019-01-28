@@ -17,11 +17,11 @@ Scenario Outline: I can search the entire website with a search term by using a 
 Scenario Outline: I want the search results to appear below the global site search field as the site autocompletes the search query
 	Given I access the websites homepage
 	When I type "<searchterm>" into the global site search field
-	Then the results will appear below the global site search field as I type the characters in #Add step that asserts searchterm contained in result
+	Then each result will contain the "<searchterm>"
 	Examples:
 	|	searchterm			|
-	|	Gideon				|
-	|	Gid					|
+	|	gideon				|
+	|	gid					|
 	
 Scenario Outline: I want to be informated on the search results page that my query from the global site search has not retrieved any results
 	Given I access the websites homepage
