@@ -12,43 +12,31 @@ import org.openqa.selenium.support.ui.Select;
 
 public class Events_Page extends BasePage {
 	
-	String practiceXpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Practice']/option";
-	String locationXpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Location']/option";
 	String eventTenseXpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Only Events in the Future']/option";
+	String locationXpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Location']/option";
+	String practiceXpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Practice']/option";
+	String sortXpath = "//div[@class='btn-group bootstrap-select']//select[@title='Sort by']/option";
+	String speakerXpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Speaker']/option";
 	String topicXpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Topic']/option";
 	String typeXpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Type']/option";
-	String speakerXpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Speaker']/option";
-	String sortXpath = "//div[@class='btn-group bootstrap-select']//select[@title='Sort by']/option";
 
-	
-	public @FindBy(xpath = "//input[@placeholder='Name']") WebElement textbox_NameSearch;
-	public @FindBy(xpath = "//div[@class='searchResults cardRow']") WebElement container_EventSearchResults;
 	public @FindBy(xpath = "//span[@class='ctaLoadMore__text']") WebElement button_LoadMore;
+	public @FindBy(xpath = "/html/body/div[6]/div/div/div[1]/div/form/div[2]/button") WebElement button_Practice;
+	public @FindBy(xpath = "//div[@class='col-md-7']") WebElement container_ArticlePageDescription;
 	public @FindBy(xpath = "//div[@class='col-md-6 search__eventResultLeft']") WebElement container_EventReturnedResults;
 	public @FindBy(css = "div[class='col-md-6 search__eventResultLeft']") WebElement container_EventReturnedResultsCSS;
-	public @FindBy(xpath = "(//*[contains(text(),'view this event')])[i]") WebElement link_ViewEventLink;
-	public @FindBy(xpath = "//div[@class='col-md-7']") WebElement container_ArticlePageDescription;
+	public @FindBy(xpath = "//div[@class='searchResults cardRow']") WebElement container_EventSearchResults;
 	public @FindBy(xpath = "//div[@class='searchResults cardRow']") WebElement container_NoSearchResultsMessage;
 	public @FindBy(xpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Practice']/option") WebElement dropdownBox_Practice;
-	public @FindBy(xpath = "/html/body/div[6]/div/div/div[1]/div/form/div[2]/button") WebElement button_Practice;
+	public @FindBy(xpath = "(//*[contains(text(),'view this event')])[i]") WebElement link_ViewEventLink;
+	public @FindBy(xpath = "//input[@placeholder='Name']") WebElement textbox_NameSearch;
 
 
 	
 
 	public Events_Page() throws IOException {
 		super();
-	}
-	
-	public void assertNoResultsFoundMessage() {
-		Assert.assertTrue(container_NoSearchResultsMessage.getText().contains("Your search did not return any results."));
-		//Maybe add data from an Excel sheet rather than the string
-	}
-	
-	public void inputTextIntoNameField(String name) throws InterruptedException{
-		textbox_NameSearch.sendKeys(name);
-		Thread.sleep(4000);
-	}
-	
+	}	
 
 	
 	public void assertEventsNameSearchResultsContainString(String name) throws InterruptedException{
@@ -85,6 +73,54 @@ public class Events_Page extends BasePage {
 		}
 	}
 	
+	
+	public void assertMultipleSearchResultsRetreiveCorrectArticles(String searchterm, String practiceoption, String locationoption, 
+			String occuranceoption, String topicoption, String typeoption, String speakeroption) {
+		
+		String searchTerm = "The";
+		String practiceOption = "Corporate/M&A";
+		String locationOption = "Brussels";
+		String occuranceOption = "Future Events";
+		String topicOption = "Brexit";
+		String typeOption = "DSP";
+		String speakerOption = "Ian Hunter";
+		
+		if (searchterm.contains(searchTerm) && practiceoption.contains(practiceOption) && locationoption.contains(locationOption) 
+				&& occuranceoption.equals(occuranceOption) && topicoption.equals(topicOption) && typeoption.equals(typeOption) 
+				&& speakeroption.equals(speakerOption)) { 
+			System.out.println("Condition matches");
+		}
+	}
+	
+	
+	public void assertNoResultsFoundMessage() {
+		Assert.assertTrue(container_NoSearchResultsMessage.getText().contains("Your search did not return any results."));
+		//Maybe add data from an Excel sheet rather than the string
+	}
+	
+	
+	public void inputTextIntoNameField(String name) throws InterruptedException{
+		textbox_NameSearch.sendKeys(name);
+		Thread.sleep(4000);
+	}
+		
+	
+	public void selectOptionFromLocationDropDownList(String option) throws InterruptedException {
+		switch(option) {
+		case "Brussels": 
+			System.out.println("Brussels case switched to");
+			selectOptionFromSpecifiedDropDownList(locationXpath, option);
+			break;
+		case "Hong Kong":
+			selectOptionFromSpecifiedDropDownList(locationXpath, option);
+			break;			
+		case "Berlin":
+			selectOptionFromSpecifiedDropDownList(locationXpath, option);
+			break;		
+		}
+	}
+	
+	
 	public void selectOptionFromPracticeDropDownList(String option) throws InterruptedException {
 		switch(option) {
 		case "Banking": 
@@ -102,64 +138,6 @@ public class Events_Page extends BasePage {
 		}
 	}
 	
-	public void selectOptionFromLocationDropDownList(String option) throws InterruptedException {
-		switch(option) {
-		case "Brussels": 
-			System.out.println("Brussels case switched to");
-			selectOptionFromSpecifiedDropDownList(locationXpath, option);
-			break;
-		case "Hong Kong":
-			selectOptionFromSpecifiedDropDownList(locationXpath, option);
-			break;			
-		case "Berlin":
-			selectOptionFromSpecifiedDropDownList(locationXpath, option);
-			break;		
-		}
-	}
-	
-	public void selectOptionFromTenseDropDownList(String option) throws InterruptedException {
-		switch(option) {
-		case "Future Events":
-			selectOptionFromSpecifiedDropDownList(eventTenseXpath, option);
-			break;
-		case "Past Events":
-			selectOptionFromSpecifiedDropDownList(eventTenseXpath, option);
-			break;
-		}
-	}
-	
-	public void selectOptionFromTopicDropDownList(String option) throws InterruptedException {
-		switch(option) {
-		case "Brexit":
-			selectOptionFromSpecifiedDropDownList(topicXpath, option);
-			break;
-		case "Diversity":
-			selectOptionFromSpecifiedDropDownList(topicXpath, option);
-			break;
-		}
-	}
-	
-	public void selectOptionFromTypeDropDownList(String option) throws InterruptedException {
-		switch(option) {
-		case "DSP":
-			selectOptionFromSpecifiedDropDownList(typeXpath, option);
-			break;
-		case "FRG":
-			selectOptionFromSpecifiedDropDownList(typeXpath, option);
-			break;
-		}		
-	}
-	
-	public void selectOptionFromSpeakerDrownList(String option) throws InterruptedException {
-		switch(option) {
-		case "Andreas Dehio":
-			selectOptionFromSpecifiedDropDownList(speakerXpath, option);
-			break;
-		case "Andrew Marshall":
-			selectOptionFromSpecifiedDropDownList(speakerXpath, option);
-			break;
-		}		
-	}
 	
 	public void selectOptionFromSortDrownList(String option) throws InterruptedException {
 		switch(option) {
@@ -178,22 +156,52 @@ public class Events_Page extends BasePage {
 		}
 	}
 	
-	public void assertMultipleSearchResultsRetreiveCorrectArticles(String searchterm, String practiceoption, String locationoption, 
-			String occuranceoption, String topicoption, String typeoption, String speakeroption) {
-		
-		String searchTerm = "The";
-		String practiceOption = "Corporate/M&A";
-		String locationOption = "Brussels";
-		String occuranceOption = "Future Events";
-		String topicOption = "Brexit";
-		String typeOption = "DSP";
-		String speakerOption = "Ian Hunter";
-		
-		if (searchterm.contains(searchTerm) && practiceoption.contains(practiceOption) && locationoption.contains(locationOption) 
-				&& occuranceoption.equals(occuranceOption) && topicoption.equals(topicOption) && typeoption.equals(typeOption) 
-				&& speakeroption.equals(speakerOption)) { 
-			System.out.println("Condition matches");
+	
+	public void selectOptionFromSpeakerDrownList(String option) throws InterruptedException {
+		switch(option) {
+		case "Andreas Dehio":
+			selectOptionFromSpecifiedDropDownList(speakerXpath, option);
+			break;
+		case "Andrew Marshall":
+			selectOptionFromSpecifiedDropDownList(speakerXpath, option);
+			break;
+		}		
+	}
+	
+
+	public void selectOptionFromTenseDropDownList(String option) throws InterruptedException {
+		switch(option) {
+		case "Future Events":
+			selectOptionFromSpecifiedDropDownList(eventTenseXpath, option);
+			break;
+		case "Past Events":
+			selectOptionFromSpecifiedDropDownList(eventTenseXpath, option);
+			break;
 		}
+	}
+	
+	
+	public void selectOptionFromTopicDropDownList(String option) throws InterruptedException {
+		switch(option) {
+		case "Brexit":
+			selectOptionFromSpecifiedDropDownList(topicXpath, option);
+			break;
+		case "Diversity":
+			selectOptionFromSpecifiedDropDownList(topicXpath, option);
+			break;
+		}
+	}
+	
+	
+	public void selectOptionFromTypeDropDownList(String option) throws InterruptedException {
+		switch(option) {
+		case "DSP":
+			selectOptionFromSpecifiedDropDownList(typeXpath, option);
+			break;
+		case "FRG":
+			selectOptionFromSpecifiedDropDownList(typeXpath, option);
+			break;
+		}		
 	}
 	
 
