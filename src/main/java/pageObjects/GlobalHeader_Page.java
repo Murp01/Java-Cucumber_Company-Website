@@ -15,6 +15,7 @@ public class GlobalHeader_Page extends BasePage {
 	public @FindBy(xpath = "//span[@class='ctaLoadMore__text']") WebElement button_LoadMore;
 	public @FindBy(xpath = "//button[@class='header__searchToggle']") WebElement button_SearchIcon;	
 	public @FindBy(xpath = "//div[@class='header__searchBar--results row']") WebElement container_SearchPredictions;
+	public @FindBy(xpath = "//p[contains(text(),'There were no matches')]") WebElement container_SearchPredictionsNoResult;
 	public @FindBy(xpath = "//div[@class='row searchResults effect-4']") WebElement container_SearchResults;
 	public @FindBy(xpath = "//span[contains(text(),'View all the results')]") WebElement href_ViewAllResults;
 	public @FindBy(xpath = "//div[@class='header__searchBar--results row']/div") WebElement href_SearchPredictions;		
@@ -46,6 +47,13 @@ public class GlobalHeader_Page extends BasePage {
 	}
 	
 	
+	public void assertPredictionSearchDisplaysMessageWhenNoResultsRetreived() {
+		String predictionNoResults = "There were no matches";
+		//Should move above variable out of method and have as global variable?
+		Assert.assertTrue(container_SearchPredictionsNoResult.getText().contains(predictionNoResults));
+	}
+	
+	
 	public void assertLoadMoreButtonClickableUntilAllResultsDisplayed() throws InterruptedException {
 		//Should I assert more are loaded?
 		while (button_LoadMore.isDisplayed()){
@@ -58,6 +66,13 @@ public class GlobalHeader_Page extends BasePage {
 	public void assertSearchResultsPageIsDisplayed() throws InterruptedException {
 		Assert.assertTrue(getDriver().getCurrentUrl().contains("https://www.linklaters.com/search?query="));
 		Assert.assertTrue(container_SearchResults.isDisplayed());
+	}
+	
+	public void assertSearchResultsPageNoResultsMessageIsDisplayed() throws InterruptedException {
+		Thread.sleep(3000);
+		String resultsText = container_SearchResults.getText();
+		String expectedTextSnippet = "Your search did not return any results.";
+		Assert.assertTrue(resultsText.contains(expectedTextSnippet));
 	}
 	
 	

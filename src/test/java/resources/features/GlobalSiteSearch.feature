@@ -13,7 +13,7 @@ Scenario Outline: I can search the entire website with a search term by using a 
 	|	Gideon				|
 
 	
-@LoadPage
+
 Scenario Outline: I want the search results to appear below the global site search field as the site autocompletes the search query
 	Given I access the websites homepage
 	When I type "<searchterm>" into the global site search field
@@ -23,6 +23,7 @@ Scenario Outline: I want the search results to appear below the global site sear
 	|	gideon				|
 	|	gid					|
 	
+
 Scenario Outline: I want to be informated on the search results page that my query from the global site search has not retrieved any results
 	Given I access the websites homepage
 	When I type "<searchterm>" into the global site search field and click on the search button
@@ -32,6 +33,7 @@ Scenario Outline: I want to be informated on the search results page that my que
 	|	as;dlfkajsd;			|
 	|	343240985732049			|
 	
+
 Scenario Outline: I want the search results to appear below the global site search field as the site autocompletes the search query
 	Given I access the websites homepage
 	When I type "<searchterm>" into the global site search field

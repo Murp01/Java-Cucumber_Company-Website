@@ -21,7 +21,7 @@ public class GlobalHeader_Steps extends DriverFactory {
 
 	@Then("^the search results screen will display a message stating no results have been returned$")
 	public void the_search_results_screen_will_display_a_message_stating_no_results_have_been_returned() throws Throwable {
-
+		globalHeaderPage.assertSearchResultsPageNoResultsMessageIsDisplayed();
 	}
 	
 	
@@ -33,7 +33,7 @@ public class GlobalHeader_Steps extends DriverFactory {
 
 	@Then("^a message will display below the site search field stating no results have been returned$")
 	public void a_message_will_display_below_the_site_search_field_stating_no_results_have_been_returned() throws Throwable {
-
+		globalHeaderPage.assertPredictionSearchDisplaysMessageWhenNoResultsRetreived();
 	}
 	
 	
