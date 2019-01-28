@@ -41,7 +41,7 @@ public class NavFindPeople_Page extends BasePage {
 	}
 	
 	
-	public NavFindPeople_Page sendKeysToNavLawyerSearch(String searchTerm) throws Exception {
+	public NavFindPeople_Page inputKeysToNavLawyerSearch(String searchTerm) throws Exception {
 		sendKeysToWebElement(textField_FPSearch, searchTerm);
 		return new NavFindPeople_Page();		
 	}

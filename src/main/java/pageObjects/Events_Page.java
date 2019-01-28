@@ -20,14 +20,14 @@ public class Events_Page extends BasePage {
 
 	public @FindBy(xpath = "//span[@class='ctaLoadMore__text']") WebElement button_LoadMore;
 	public @FindBy(xpath = "/html/body/div[6]/div/div/div[1]/div/form/div[2]/button") WebElement button_Practice;
+	public @FindBy(xpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Practice']/option") WebElement button_PracticeDropdown;
 	public @FindBy(xpath = "//div[@class='col-md-7']") WebElement container_ArticlePageDescription;
 	public @FindBy(xpath = "//div[@class='col-md-6 search__eventResultLeft']") WebElement container_EventReturnedResults;
 	public @FindBy(css = "div[class='col-md-6 search__eventResultLeft']") WebElement container_EventReturnedResultsCSS;
 	public @FindBy(xpath = "//div[@class='searchResults cardRow']") WebElement container_EventSearchResults;
 	public @FindBy(xpath = "//div[@class='searchResults cardRow']") WebElement container_NoSearchResultsMessage;
-	public @FindBy(xpath = "//div[@class='btn-group bootstrap-select show-tick']//select[@title='Practice']/option") WebElement dropdownBox_Practice;
-	public @FindBy(xpath = "(//*[contains(text(),'view this event')])[i]") WebElement link_ViewEventLink;
-	public @FindBy(xpath = "//input[@placeholder='Name']") WebElement textbox_NameSearch;
+	public @FindBy(xpath = "(//*[contains(text(),'view this event')])[i]") WebElement href_ViewEventLink;
+	public @FindBy(xpath = "//input[@placeholder='Name']") WebElement input_NameSearch;
 
 
 	
@@ -98,7 +98,7 @@ public class Events_Page extends BasePage {
 	
 	
 	public void inputTextIntoNameField(String name) throws InterruptedException{
-		textbox_NameSearch.sendKeys(name);
+		input_NameSearch.sendKeys(name);
 		Thread.sleep(4000);
 	}
 		

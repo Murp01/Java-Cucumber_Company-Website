@@ -10,7 +10,7 @@ public class HomePage_Steps extends DriverFactory{
 	
 	@Given("^I access the websites homepage$")
 	public void i_access_the_websites_homepage() throws Throwable {
-		homePage.getLLHomepage();
+		homePage.openLinklatersSiteHomepage();
 	}
 	
 	

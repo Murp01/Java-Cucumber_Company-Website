@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 public class ContactUs_Page extends BasePage {
 	
 	public @FindBy(xpath = "//div[@class='mapContact__controlContainer bg-brand-magenta-dark']") WebElement container_ContactUsBox;
-	public @FindBy(xpath = "//button[@title='Select location']") WebElement dropBox_Select;
+	public @FindBy(xpath = "//button[@title='Select location']") WebElement button_LocationDropdown;
 
 	
 	public ContactUs_Page() throws IOException {
@@ -22,7 +22,7 @@ public class ContactUs_Page extends BasePage {
 	
 	
 	public ContactUs_Page selectLocationFromDropDown(String location) throws IOException, InterruptedException {
-		dropBox_Select.click();
+		button_LocationDropdown.click();
 		driver.findElement(By.linkText(location)).click();;		
 		return new ContactUs_Page();	
 	}

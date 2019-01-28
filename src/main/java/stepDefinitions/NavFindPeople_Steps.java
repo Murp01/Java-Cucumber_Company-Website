@@ -13,7 +13,7 @@ public class NavFindPeople_Steps extends DriverFactory {
 	
 	@When("^I enter the following search term \"([^\"]*)\" into the Search Box$")
 	public void i_enter_the_following_search_term_into_the_Search_Box(String searchTerm) throws Throwable {
-		navFindPeoplePage.sendKeysToNavLawyerSearch(searchTerm);
+		navFindPeoplePage.inputKeysToNavLawyerSearch(searchTerm);
 
 	}	
 	

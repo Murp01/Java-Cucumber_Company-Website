@@ -8,13 +8,13 @@ public class GlobalHeader_Steps extends DriverFactory {
 	
 	@When("^I type \"([^\"]*)\" into the global site search field$")
 	public void i_type_into_the_global_site_search_field(String searchTerm) throws Throwable {
-		globalHeaderPage.enterSearchTermIntoGlobalSiteSearch(searchTerm);
+		globalHeaderPage.inputSearchTermIntoGlobalSiteSearch(searchTerm);
 	}
 
 
 	@When("^I type \"([^\"]*)\" into the global site search field and click on the search button$")
 	public void i_type_into_the_global_site_search_field_and_click_on_the_search_button(String searchTerm) throws Throwable {
-		globalHeaderPage.enterSearchTermIntoGlobalSiteSearchViewAllResults(searchTerm);
+		globalHeaderPage.inputSearchTermIntoGlobalSiteSearchViewAllResults(searchTerm);
 		Thread.sleep(9000);
 	}
 	

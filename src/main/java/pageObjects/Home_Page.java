@@ -41,7 +41,7 @@ public class Home_Page extends BasePage {
 	}
 	
 	
-	public Home_Page getLLHomepage() throws IOException {
+	public Home_Page openLinklatersSiteHomepage() throws IOException {
 		getDriver().get("https://www.linklaters.com/");
 		return new Home_Page();		
 	}

@@ -14,9 +14,9 @@ public class GlobalHeader_Page extends BasePage {
 	public @FindBy(xpath = "//button[@class='header__searchToggle']") WebElement button_SearchIcon;	
 	public @FindBy(xpath = "//div[@class='header__searchBar--results row']") WebElement container_SearchPredictions;
 	public @FindBy(xpath = "//div[@class='row searchResults effect-4']") WebElement container_SearchResults;
-	public @FindBy(xpath = "//span[contains(text(),'View all the results')]") WebElement link_ViewAllResults;
-	public @FindBy(xpath = "//div[@class='header__searchBar--results row']/div") WebElement list_SearchPredictions;		
-	public @FindBy(xpath = "//input[@id='search']") WebElement textBox_GlobalSearch;
+	public @FindBy(xpath = "//span[contains(text(),'View all the results')]") WebElement href_ViewAllResults;
+	public @FindBy(xpath = "//div[@class='header__searchBar--results row']/div") WebElement href_SearchPredictions;		
+	public @FindBy(xpath = "//input[@id='search']") WebElement input_GlobalSearch;
 
 
 
@@ -45,18 +45,18 @@ public class GlobalHeader_Page extends BasePage {
 	}
 	
 	
-	public void enterSearchTermIntoGlobalSiteSearch(String searchTerm) throws InterruptedException {
+	public void inputSearchTermIntoGlobalSiteSearch(String searchTerm) throws InterruptedException {
 		button_SearchIcon.click();
-		textBox_GlobalSearch.sendKeys(searchTerm);
+		input_GlobalSearch.sendKeys(searchTerm);
 		Thread.sleep(3000);
 	}
 	
 	
-	public void enterSearchTermIntoGlobalSiteSearchViewAllResults(String searchTerm) throws InterruptedException {
+	public void inputSearchTermIntoGlobalSiteSearchViewAllResults(String searchTerm) throws InterruptedException {
 		button_SearchIcon.click();
-		textBox_GlobalSearch.sendKeys(searchTerm);
+		input_GlobalSearch.sendKeys(searchTerm);
 		Thread.sleep(5000);
-		link_ViewAllResults.click();
+		href_ViewAllResults.click();
 	}
 	
 
