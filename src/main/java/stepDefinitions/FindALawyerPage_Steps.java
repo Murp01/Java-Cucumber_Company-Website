@@ -1,8 +1,5 @@
 package stepDefinitions;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import utils.DriverFactory;

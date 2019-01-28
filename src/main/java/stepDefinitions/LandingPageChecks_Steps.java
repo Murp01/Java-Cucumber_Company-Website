@@ -23,6 +23,13 @@ public class LandingPageChecks_Steps extends DriverFactory {
 	public void i_click_on_from_the_primary_navigation(String primNavLink) throws Throwable {
 		landingPageChecksPage.clickOnPrimaryNavLink(primNavLink);
 	}
+	
+	
+	@When("^I hover over \"([^\"]*)\" and select \"([^\"]*)\" from the secondary navigation$")
+	public void i_hover_over_and_select_from_the_secondary_navigation(String primNav, String secNav) throws Throwable {
+		landingPageChecksPage.clickOnSecondaryNavLink(primNav, secNav);
+	}
+	
 
 	@Then("^the \"([^\"]*)\" and \"([^\"]*)\" will be correctly formatted$")
 	public void the_and_will_be_correctly_formatted(String pageURL, String pageTitle) throws Throwable {
@@ -30,9 +37,6 @@ public class LandingPageChecks_Steps extends DriverFactory {
 		landingPageChecksPage.assertPageTitle(pageTitle);
 	}
 	
-	@When("^I hover over \"([^\"]*)\" and select \"([^\"]*)\" from the secondary navigation$")
-	public void i_hover_over_and_select_from_the_secondary_navigation(String primNav, String secNav) throws Throwable {
-		landingPageChecksPage.clickOnSecondaryNavLink(primNav, secNav);
-	}
+
 
 }
