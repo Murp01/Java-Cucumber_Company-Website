@@ -21,12 +21,13 @@ public class YourApplication_Steps extends DriverFactory {
 
 	@When("^I click on a vacancies Apply button$")
 	public void i_click_on_a_vacancies_Apply_button() throws Throwable {
-
+		yourApplicationPage.clickApplyOnTopJobListingArticle();
+		Thread.sleep(4000);
 	}
 
 	@Then("^the webpage is redirected to the job posting page$")
 	public void the_webpage_is_redirected_to_the_job_posting_page() throws Throwable {
-
+		yourApplicationPage.assertRedirectedToExternalJobListingSite();
 	}
 
 	@Then("^upcoming vacancies will be displayed$")
