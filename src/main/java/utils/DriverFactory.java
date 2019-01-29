@@ -19,6 +19,7 @@ import pageObjects.Home_Page;
 import pageObjects.LandingPageChecks_Page;
 import pageObjects.NavFindPeople_Page;
 import pageObjects.PrimaryNav_Page;
+import pageObjects.YourApplication_Page;
 import pageObjects.AboutUs_Page;
 
 public class DriverFactory {
@@ -34,8 +35,7 @@ public class DriverFactory {
 	public static ContactUs_Page contactUsPage;	
 	public static Events_Page eventsPage;
 	public static GlobalHeader_Page globalHeaderPage;
-	
-
+	public static YourApplication_Page yourApplicationPage;
 	public static LandingPageChecks_Page landingPageChecksPage;
 
 	public WebDriver getDriver() {
@@ -93,7 +93,7 @@ public class DriverFactory {
 			contactUsPage = PageFactory.initElements(driver, ContactUs_Page.class);		
 			eventsPage = PageFactory.initElements(driver, Events_Page.class);
 			globalHeaderPage = PageFactory.initElements(driver, GlobalHeader_Page.class);
-			
+			yourApplicationPage = PageFactory.initElements(driver, YourApplication_Page.class);
 			landingPageChecksPage = PageFactory.initElements(driver, LandingPageChecks_Page.class);
 		}
 		return driver;
