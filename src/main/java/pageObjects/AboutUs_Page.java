@@ -21,7 +21,7 @@ public class AboutUs_Page extends BasePage{
 	
 	
 	
-	public AboutUs_Page() throws IOException {
+	public AboutUs_Page() {
 		super();
 	}
 	

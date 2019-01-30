@@ -22,6 +22,7 @@ public class YourApplication_Page extends BasePage {
 	
 	public @FindBy(xpath = "//p[contains(text(),'Open vacancies')]") WebElement button_OpenVacancies;
 	public @FindBy(xpath = "//p[contains(text(),'Future vacancies')]") WebElement button_FutureVacancies;
+	public @FindBy(xpath = "//div[@class='contentContainer is-active']") WebElement container_JobListingContainerList;
 	public @FindBy(xpath = "//div[@class='right']") WebElement container_OpenVacancyDateBoxList;
 	public @FindBy(xpath = "//span[contains(text(),'Apply')]") WebElement href_TopJobListApplyButton;
 	
@@ -39,7 +40,7 @@ public class YourApplication_Page extends BasePage {
 			DateFormat dateTimeFormat = new SimpleDateFormat(closeDateFormat);
 
 			Date endDate = dateTimeFormat.parse(we.getText());
-			
+
 			if (new Date().after(endDate))
 			{
 				Assert.assertTrue(new Date().after(endDate));
@@ -64,7 +65,6 @@ public class YourApplication_Page extends BasePage {
 		switch (tab){
 		case "Open vacancies":
 			button_OpenVacancies.click();
-			System.out.println("Open Vacancies was selected");
 			break;
 		case "Future Vacancies":
 			button_FutureVacancies.click();
