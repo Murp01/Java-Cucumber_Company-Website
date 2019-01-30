@@ -1,6 +1,6 @@
 Feature: JobListing Widget
 
-@LoadPage
+
 Scenario: The open vacancies closing dates will not exceed the current date
 	Given I am on the "https://careers.linklaters.com/en/early-careers/your-application" page
 	When When I select the "Open vacancies" tab

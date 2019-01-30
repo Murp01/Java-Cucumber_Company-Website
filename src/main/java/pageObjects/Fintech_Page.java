@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class Fintech_Page extends BasePage{
 	
+	String fintechLocationSearchXpath = "//select[@title='Select Location']/option";
+	
 	public @FindBy(xpath = "//button[@title='All Locations']") WebElement button_PeopleSearchLocationDropdown;
 	public @FindBy(xpath = "") WebElement select_PeopleSearchLocationOption;
 	//ul[@class='dropdown-menu inner']/li
@@ -18,14 +20,15 @@ public class Fintech_Page extends BasePage{
 
 	}
 	
-	public void selectLocationFromLocationSearchDropdown(String option){
-		List<WebElement> myElements01 = driver.findElements(By.xpath("//ul[@class='dropdown-menu inner']/li/a/span"));
-		for (WebElement e : myElements01) {
-			String selectionOption = e.getText();
-			System.out.println(selectionOption);
-			if (e.getText().equalsIgnoreCase(option)) {
-				e.click(); 
-			}
+	
+	public void selectLocationFromFintechPersonLocationSearch(String option) throws InterruptedException{
+		switch (option){
+		case "All Locations":
+			selectOptionFromSpecifiedDropDownList(fintechLocationSearchXpath, option);
+			break;
+		case "France":
+			selectOptionFromSpecifiedDropDownList(fintechLocationSearchXpath, option);
+			break;
 		}
 	}
 
