@@ -10,9 +10,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 
 public class YourApplication_Page extends BasePage {
 	
@@ -29,29 +31,22 @@ public class YourApplication_Page extends BasePage {
 	}
 	
 	
-	public void assertOpenVacancyDateNotExpired(){
-		//Date date = new Date();
-		List<WebElement> dateBox = driver.findElements(By.xpath("//div[@class='right']"));
+	public void assertOpenVacancyDateNotExpired() throws ParseException{
+
+		List<WebElement> dateBox = driver.findElements(By.xpath("//div[@class='contentContainer is-active']//p[preceding-sibling::p[child::strong[text()='Closing Date:']]]"));
+		
 		for (WebElement we: dateBox){
-			System.out.println("Contents of date box " + we.getText());
-			//System.out.println("The actual date is " + date);
 			DateFormat dateTimeFormat = new SimpleDateFormat(closeDateFormat);
-			String dateYo = dateTimeFormat.format(new Date());
-			System.out.println(dateYo);
+
+			Date endDate = dateTimeFormat.parse(we.getText());
+			
+			if (new Date().after(endDate))
+			{
+				Assert.assertTrue(new Date().after(endDate));
+			}
 		}
 	}
 	
-	
-	public void assertOpenVacancyDateNotExpiredInt() throws ParseException{
-		//unparsable date 11 February 2019
-		List<WebElement> dateBox = driver.findElements(By.xpath("(//div[@class='right']/p)[4]"));
-		for (WebElement we: dateBox){
-			String boxesDate = we.getText();
-			DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
-			Date date = formatter.parse(boxesDate);
-			System.out.println(date);
-		}
-	}
 	
 	public void assertRedirectedToExternalJobListingSite() {
 		//look for a more precise way to assert the page is correct
