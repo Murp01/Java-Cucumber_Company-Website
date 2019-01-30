@@ -57,7 +57,7 @@ public class BasePage extends DriverFactory {
 		
 	}
 
-	public BasePage() throws IOException {
+	public BasePage() {
 		this.wait = new WebDriverWait(driver, 15);
 		jsExecutor = ((JavascriptExecutor) driver);
 	}

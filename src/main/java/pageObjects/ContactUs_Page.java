@@ -11,7 +11,7 @@ public class ContactUs_Page extends BasePage {
 	public @FindBy(xpath = "//button[@title='Select location']") WebElement button_LocationDropdown;
 
 	
-	public ContactUs_Page() throws IOException {
+	public ContactUs_Page(){
 		super();
 	}
 	

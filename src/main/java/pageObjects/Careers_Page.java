@@ -12,7 +12,7 @@ public class Careers_Page extends BasePage {
 	public @FindBy(css = "") WebElement widget_StackedTab;
 	
 	
-	public Careers_Page() throws IOException {
+	public Careers_Page() {
 		super();
 	}
 	
