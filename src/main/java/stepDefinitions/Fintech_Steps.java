@@ -15,7 +15,7 @@ public class Fintech_Steps extends DriverFactory {
 
 	@Then("^the lawyers will filter displaying lawyers who match the \"([^\"]*)\"$")
 	public void the_lawyers_will_filter_displaying_lawyers_who_match_the(String arg1) throws Throwable {
-
+		fintechPage.assertAllFilteredFintechLawyersLocations();
 	}
 
 }

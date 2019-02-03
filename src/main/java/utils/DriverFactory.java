@@ -14,6 +14,7 @@ import pageObjects.Careers_Page;
 import pageObjects.ContactUs_Page;
 import pageObjects.Events_Page;
 import pageObjects.FindALawyer_Page;
+import pageObjects.Fintech_Page;
 import pageObjects.GlobalHeader_Page;
 import pageObjects.Home_Page;
 import pageObjects.LandingPageChecks_Page;
@@ -32,6 +33,7 @@ public class DriverFactory {
 	public static Careers_Page careersPage;
 	public static NavFindPeople_Page navFindPeoplePage;
 	public static FindALawyer_Page findALawyerPage;
+	public static Fintech_Page fintechPage;
 	public static ContactUs_Page contactUsPage;	
 	public static Events_Page eventsPage;
 	public static GlobalHeader_Page globalHeaderPage;
@@ -95,6 +97,7 @@ public class DriverFactory {
 			globalHeaderPage = PageFactory.initElements(driver, GlobalHeader_Page.class);
 			yourApplicationPage = PageFactory.initElements(driver, YourApplication_Page.class);
 			landingPageChecksPage = PageFactory.initElements(driver, LandingPageChecks_Page.class);
+			fintechPage = PageFactory.initElements(driver, Fintech_Page.class);
 		}
 		return driver;
 
