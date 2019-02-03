@@ -1,7 +1,9 @@
 package pageObjects;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -21,33 +23,39 @@ public class Fintech_Page extends BasePage{
 
 	public Fintech_Page() throws IOException {
 		super();
-
 	}
 	
 	
 	public void assertAllFilteredFintechLawyersLocations() throws InterruptedException {
-		clickOnOnlyDisplayedElement(fintechRetrievedLawyersHref);
-		
-	}
-	
-	
-	public void clickOnOnlyDisplayedElement(String xpath) throws InterruptedException {
+		String xpath = fintechRetrievedLawyersHref;
 		List<WebElement> filteredLawyers = driver.findElements(By.xpath(xpath));
 
 		if (filteredLawyers.size() > 0) {
 			for (WebElement we: filteredLawyers) {
 				if (we.isDisplayed()) {
-					//jsClick(we);
-					Actions action = new Actions(getDriver());
-					action.contextClick(we).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build().perform();
+					String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,Keys.RETURN); 
+					we.sendKeys(selectLinkOpeninNewTab);			
+					Set <String> st= driver.getWindowHandles();
+					Iterator<String> it = st.iterator();
+					
+					String parent =  it.next();
+					String child =it.next();
+					
+					getDriver().switchTo().window(child);				
 					Thread.sleep(3000);
+					getDriver().close();
+					Thread.sleep(3000);
+					getDriver().switchTo().window(parent);
+					
+					//assert location is present on page
+
 				}
 			}
 		}
 		else {
 			System.out.println("Filtered Lawyer click failed");
 		}
-			
+				
 	}
 	
 	

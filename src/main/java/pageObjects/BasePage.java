@@ -38,6 +38,44 @@ public class BasePage extends DriverFactory {
 			Thread.sleep(9000);
 	}
 	
+	
+	public void rightClickOnOnlyDisplayedElement(String xpath) throws InterruptedException {
+		List<WebElement> filteredLawyers = driver.findElements(By.xpath(xpath));
+
+		if (filteredLawyers.size() > 0) {
+			for (WebElement we: filteredLawyers) {
+				if (we.isDisplayed()) {
+					String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,Keys.RETURN); 
+					we.sendKeys(selectLinkOpeninNewTab);
+					Thread.sleep(3000);
+					
+				}
+			}
+		}
+		else {
+			System.out.println("Filtered Lawyer click failed");
+		}
+			
+	}
+	
+	
+	public void clickOnOnlyDisplayedElement(String xpath) throws InterruptedException {
+		List<WebElement> filteredLawyers = driver.findElements(By.xpath(xpath));
+
+		if (filteredLawyers.size() > 0) {
+			for (WebElement we: filteredLawyers) {
+				if (we.isDisplayed()) {
+					jsClick(we);
+				}
+			}
+		}
+		else {
+			System.out.println("Filtered Lawyer click failed");
+		}
+			
+	}
+	
+	
 	public void navigateBrowser (String navigate) throws InterruptedException {
 		//move to base page
 		switch(navigate) {
