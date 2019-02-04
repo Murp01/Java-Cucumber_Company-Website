@@ -1,7 +1,6 @@
 package pageObjects;
 
 import java.awt.AWTException;
-import java.io.IOException;
 import java.util.List;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
@@ -36,6 +35,12 @@ public class BasePage extends DriverFactory {
 			}
 		}
 			Thread.sleep(9000);
+	}
+	
+	
+	public void waitForElementToAppear(WebElement element){
+		WebDriverWait wait = new WebDriverWait(getDriver(), 1000);
+		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 	
 	

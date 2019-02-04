@@ -9,6 +9,6 @@ Scenario Outline: Filter the lawyers using the location search dropdown
 	Then the lawyers will filter displaying lawyers who match the "<dropdownselection>"
 	Examples:
 	|	dropdownselection	|
-	|	All Locations		|
+#	|	All Locations		|
 	|	France				|
 	
