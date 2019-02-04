@@ -1,7 +1,5 @@
 package pageObjects;
 
-import java.io.IOException;
-
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -69,7 +67,6 @@ public class AboutUs_Page extends BasePage{
 		jsClick(tab_Accordion01);
 		jsClick(tab_Accordion02);
 		jsClick(tab_Accordion03);
-		Thread.sleep(9000);
 	}
 	
 	
@@ -128,7 +125,8 @@ public class AboutUs_Page extends BasePage{
 				}
 				if (container_Accordion03.getAttribute("style").contains("none")) {
 					jsClick(tab_Accordion03);
-					Thread.sleep(9000);
+					Thread.sleep(3000);
+					//waitForElementToDisappear(container_Accordion03);  This fails... why
 				}
 				else {
 					System.out.println("already open");
@@ -150,7 +148,8 @@ public class AboutUs_Page extends BasePage{
 				}
 				if (container_Accordion03.getAttribute("style").contains("block")) {
 					jsClick(tab_Accordion03);
-					Thread.sleep(9000);
+					Thread.sleep(3000);
+					//waitForElementToAppear(container_Accordion03);
 				}
 				else {
 					System.out.println("already open");
@@ -191,7 +190,8 @@ public class AboutUs_Page extends BasePage{
 			case "segment01":
 				if (!container_Accordion01.isDisplayed()) {
 					jsClick(tab_Accordion01);
-					Thread.sleep(3000);
+					WaitUntilWebElementIsVisible(container_Accordion01);
+					//Thread.sleep(3000);
 					Assert.assertTrue(container_Accordion01.getText().contains(accordionText01));
 				}
 				break;

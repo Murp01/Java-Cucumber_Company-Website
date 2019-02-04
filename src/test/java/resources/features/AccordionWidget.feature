@@ -11,6 +11,7 @@ Scenario: Open all accordions segments
 	When I click on each "closed" accordions segments
 	Then the correct content will be displayed
 	
+@LoadPage
 Scenario: Upon arriving on the page the accordion will be closed by default
 	Given I am on the "https://www.linklaters.com/en/about-us" page
 	And "segment01" is open
@@ -18,6 +19,7 @@ Scenario: Upon arriving on the page the accordion will be closed by default
 	And I click the "back" browser button
 	Then all accordion segments will be closed
 	
+
 Scenario: Close all segments of the accordion widget
 	Given I am on the "https://www.linklaters.com/en/about-us" page
 	And I click on each of the accordions segments

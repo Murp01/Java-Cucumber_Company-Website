@@ -44,6 +44,12 @@ public class BasePage extends DriverFactory {
 	}
 	
 	
+	public void waitForElementToDisappear(WebElement element){
+		WebDriverWait wait = new WebDriverWait(getDriver(), 1000);
+		wait.until(ExpectedConditions.invisibilityOf(element));
+	}
+	
+	
 	public void rightClickOnOnlyDisplayedElement(String xpath) throws InterruptedException {
 		List<WebElement> filteredLawyers = driver.findElements(By.xpath(xpath));
 
