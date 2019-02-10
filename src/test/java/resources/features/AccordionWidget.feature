@@ -11,7 +11,7 @@ Scenario: Open all accordions segments
 	When I click on each "closed" accordions segments
 	Then the correct content will be displayed
 	
-@LoadPage
+
 Scenario: Upon arriving on the page the accordion will be closed by default
 	Given I am on the "https://www.linklaters.com/en/about-us" page
 	And "segment01" is open
