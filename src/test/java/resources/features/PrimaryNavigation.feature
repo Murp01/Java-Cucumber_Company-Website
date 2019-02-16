@@ -21,7 +21,6 @@ Scenario Outline: I can return to the homepage from anywhere on the site with th
 	|	https://www.linklaters.com/en/client-services			|
 	|	https://www.linklaters.com								|
 
-@LoadPage	
 Scenario: Print out all primary nav title and urls
 	Given I access the websites homepage
 	When I click on all primary header links

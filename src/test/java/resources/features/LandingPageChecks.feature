@@ -1,4 +1,4 @@
-Feature: Webpages
+Feature: Landing page smoke tests
 
 
 Scenario Outline: I want the title and the URL to be correct when accessing pages from the primary navigation bar
