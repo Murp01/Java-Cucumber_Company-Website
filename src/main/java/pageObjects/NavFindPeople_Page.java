@@ -20,7 +20,7 @@ public class NavFindPeople_Page extends BasePage {
 		super();
 	}
 	
-	
+	//list can be replaced with a @findall annotation - see findalawyerpage
 	public NavFindPeople_Page assertRetrievedResultsContainSearchTerm(String searchTerm) throws Exception {
 		Thread.sleep(3000);
 		List<WebElement> profileName = driver.findElements(By.xpath("//div[@class='col-sm-4 lawyerSearch__resultItem']/*/span[1]"));
