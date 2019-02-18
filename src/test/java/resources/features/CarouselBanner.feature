@@ -3,7 +3,7 @@ Feature: Homepage Carousel widget
 The homepage has a carousel widget that...
 
 
-@LoadPage
+
 Scenario: Click on different tabs on Carousel widget via border arrows
 	Given I access the websites homepage
 	And I scroll the carousel feature by clicking on the "Right" border arrow

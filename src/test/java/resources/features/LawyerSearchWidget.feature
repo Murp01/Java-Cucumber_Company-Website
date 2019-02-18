@@ -1,25 +1,27 @@
 Feature: Lawyer Search Widget
 
-@LoadPage	
+	
 Scenario: I can search for Lawyer using a partial search term
 	Given I am on the "https://www.linklaters.com/en/find-a-lawyer" page
 	And I type "ian" into the Find A Lawyer Page Search Box
 	Then all retrieved profiles will contain the term "ian"
 	
+
 Scenario Outline: I can use the alphabet buttons to locate persons whose name contains the selected character
 	Given I am on the "https://www.linklaters.com/en/find-a-lawyer" page
-	When I click on the <alphabetbutton> alphabet button
-	Then all retrieved results will contain <alphabetbutton>
+	When I click on the "<alphabetbutton>" alphabet button
+	Then all retrieved results will contain "<alphabetbutton>"
 	Examples:
 	|	alphabetbutton	|
 	|	A				|
 	|	C				|	
 	|	Z				|
 	
+@LoadPage
 Scenario Outline: I can use multiple alphabet buttons to locate persons whose name contains the selected character
 	Given I am on the "https://www.linklaters.com/en/find-a-lawyer" page
 	When I click on the "<alphabetbuttona>" and "<alphabetbuttonb>" alphabetbuttons
-	Then all retrieved results will contain <alphabetbuttona>
+	Then all retrieved results will contain "<alphabetbuttona>" and "<alphabetbuttonb>"
 	Examples:
 	|	alphabetbuttona		|	alphabetbuttonb	|
 	|	A					|	L				|

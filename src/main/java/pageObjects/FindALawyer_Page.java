@@ -44,6 +44,17 @@ public class FindALawyer_Page extends BasePage {
 	}
 	
 	
+	public void assertLawyerPageRetrievedLawyersTwoAlphabetButtons(String searchTerm) {	
+		for (WebElement we: container_RetrievedLawyers) {
+			String nameIs = we.getText();
+			searchTerm = searchTerm.toLowerCase();
+			nameIs = nameIs.toLowerCase();	
+			//System.out.println("search term is " + searchTerm + " and profile reads as " + nameIs);
+			assertTrue(nameIs.contains(searchTerm));
+		}
+	}
+	
+	
 	public void clickOnAlphabetButton(String alphabetButton) throws InterruptedException {
 		for (WebElement we: button_AlphabetButtons) {
 			String buttonIs = we.getText();
@@ -51,7 +62,25 @@ public class FindALawyer_Page extends BasePage {
 			buttonIs = buttonIs.toLowerCase();
 			if (buttonIs.equals(alphabetButton)) {
 				we.click();
-				Thread.sleep(3000);
+				//Thread.sleep(1000);
+			}
+		}
+	}
+	
+	
+	public void clickOnTwoAlphabetButtons(String alphabetButtonA, String alphabetButtonB) throws InterruptedException{
+		for (WebElement we: button_AlphabetButtons) {
+			String buttonIs = we.getText();
+			alphabetButtonA = alphabetButtonA.toLowerCase();
+			alphabetButtonB = alphabetButtonB.toLowerCase();
+			buttonIs = buttonIs.toLowerCase();
+			if (buttonIs.equals(alphabetButtonA)) {
+				we.click();
+				//Thread.sleep(1000);
+			}
+			if (buttonIs.equals(alphabetButtonB)){
+				we.click();
+				Thread.sleep(2000);
 			}
 		}
 	}
