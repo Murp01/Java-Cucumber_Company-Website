@@ -31,12 +31,12 @@ public class FindALawyerPage_Steps extends DriverFactory {
 	
 	@Then("^all retrieved results will contain \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void all_retrieved_results_will_contain_and(String alphabetButtonA, String alphabetButtonB) throws Throwable {
-		findALawyerPage.clickOnTwoAlphabetButtons(alphabetButtonA, alphabetButtonB);
+		findALawyerPage.assertLawyerPageRetrievedLawyersTwoAlphabetButtons(alphabetButtonA, alphabetButtonB);
 	}
 	
 	@When("^I click on the \"([^\"]*)\" and \"([^\"]*)\" alphabetbuttons$")
-	public void i_click_on_the_and_alphabetbuttons(String arg1, String arg2) throws Throwable {
-
+	public void i_click_on_the_and_alphabetbuttons(String alphabetButtonA, String alphabetButtonB) throws Throwable {
+		findALawyerPage.clickOnTwoAlphabetButtons(alphabetButtonA, alphabetButtonB);
 	}
 
 }

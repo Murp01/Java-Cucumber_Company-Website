@@ -44,13 +44,15 @@ public class FindALawyer_Page extends BasePage {
 	}
 	
 	
-	public void assertLawyerPageRetrievedLawyersTwoAlphabetButtons(String searchTerm) {	
+	public void assertLawyerPageRetrievedLawyersTwoAlphabetButtons(String alphabetButtonA, String alphabetButtonB) {	
 		for (WebElement we: container_RetrievedLawyers) {
-			String nameIs = we.getText();
-			searchTerm = searchTerm.toLowerCase();
-			nameIs = nameIs.toLowerCase();	
-			//System.out.println("search term is " + searchTerm + " and profile reads as " + nameIs);
-			assertTrue(nameIs.contains(searchTerm));
+			String nameIs = we.getText();	//gets iterated name from website. 
+			alphabetButtonA = alphabetButtonA.toLowerCase();	//Takes argument a and converts to lowercase
+			alphabetButtonB = alphabetButtonB.toLowerCase();	// Takes argument b and converts to lowercase
+			nameIs = nameIs.toLowerCase();	//takes name from element in website and converts to lowercase
+			System.out.println("search term is " + alphabetButtonA + " and profile reads as " + nameIs);
+			System.out.println("search term is " + alphabetButtonB + " and profile reads as " + nameIs);
+			Assert.assertTrue(nameIs.contains(alphabetButtonA) || nameIs.contains(alphabetButtonB));  //tell zach changed assertThat to true and it worked
 		}
 	}
 	
@@ -76,7 +78,7 @@ public class FindALawyer_Page extends BasePage {
 			buttonIs = buttonIs.toLowerCase();
 			if (buttonIs.equals(alphabetButtonA)) {
 				we.click();
-				//Thread.sleep(1000);
+				Thread.sleep(1000);
 			}
 			if (buttonIs.equals(alphabetButtonB)){
 				we.click();
