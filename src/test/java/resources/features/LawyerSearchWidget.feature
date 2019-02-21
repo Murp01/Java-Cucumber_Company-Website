@@ -17,7 +17,6 @@ Scenario Outline: I can use the alphabet buttons to locate persons whose name co
 	|	C				|	
 	|	Z				|
 	
-@LoadPage
 Scenario Outline: I can use multiple alphabet buttons to locate persons whose name contains the selected character
 	Given I am on the "https://www.linklaters.com/en/find-a-lawyer" page
 	When I click on the "<alphabetbuttona>" and "<alphabetbuttonb>" alphabetbuttons
@@ -27,7 +26,8 @@ Scenario Outline: I can use multiple alphabet buttons to locate persons whose na
 	|	A					|	L				|
 	|	C					|	K				|	
 	|	Z					|	H				|
-	
+
+@LoadPage	
 Scenario Outline: I can search for a lawyer by entering the full name into the Name search field
 	Given I am on the "https://www.linklaters.com/en/find-a-lawyer" page
 	And the "Lawyer Directory" tab is selected

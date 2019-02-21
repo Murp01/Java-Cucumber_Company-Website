@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import utils.DriverFactory;
@@ -37,6 +38,22 @@ public class FindALawyerPage_Steps extends DriverFactory {
 	@When("^I click on the \"([^\"]*)\" and \"([^\"]*)\" alphabetbuttons$")
 	public void i_click_on_the_and_alphabetbuttons(String alphabetButtonA, String alphabetButtonB) throws Throwable {
 		findALawyerPage.clickOnTwoAlphabetButtons(alphabetButtonA, alphabetButtonB);
+	}
+	
+	
+	@Given("^the \"([^\"]*)\" tab is selected$")
+	public void the_tab_is_selected(String directory) throws Throwable {
+		findALawyerPage.selectDirectoryCategory(directory);
+	}
+
+	@When("^I enter the name of a \"([^\"]*)\" who is in the lawyer team$")
+	public void i_enter_the_name_of_a_who_is_in_the_lawyer_team(String arg1) throws Throwable {
+
+	}
+
+	@Then("^the \"([^\"]*)\" profile is retrieved$")
+	public void the_profile_is_retrieved(String arg1) throws Throwable {
+
 	}
 
 }

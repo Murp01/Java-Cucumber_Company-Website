@@ -15,9 +15,10 @@ public class FindALawyer_Page extends BasePage {
 	
 	public @FindBy(css = "") WebElement button_LoadMore;
 	public @FindBy(xpath = "//input[@placeholder='Name']") WebElement input_SearchName;
-	public @FindBy(css = "") WebElement button_PracticeDropdown;
+	public @FindBy(xpath = "") WebElement button_PracticeDropdown;
 	public @FindBy(css = "") WebElement selector_BusinessTeamDirectory;
 	public @FindBy(css = "") WebElement selector_LawyerDirectory;
+	public @FindBy(xpath = "//a[@class='is-active']") WebElement selector_CurrentDirectory;
 	
 	@FindAll({@FindBy(xpath = "//div[@class='btn-group bootstrap-select show-tick alphabator']//ul[@class='dropdown-menu inner']/li")})
 	public List<WebElement> button_AlphabetButtons;	
@@ -90,6 +91,30 @@ public class FindALawyer_Page extends BasePage {
 	
 	public void enterSearchTermIntoLawyerNameInput(String searchTerm) {
 		input_SearchName.sendKeys(searchTerm);
+	}
+	
+	
+	public void selectDirectoryCategory(String directory){
+		//check if arg category is selected, if not click it
+		String selectedDirectory = selector_CurrentDirectory.getText();
+		switch(directory){
+			case "Lawyer Directory":
+				if(selector_LawyerDirectory.isSelected()){
+					System.out.println("Excellent");
+				}
+				else{
+					
+				}
+				break;
+			case "":
+				if(selector_BusinessTeamDirectory.isSelected()){
+					
+				}
+				else{
+					//Can probably do this in one if statement instead of switch case
+				}
+		}
+
 	}
 
 
