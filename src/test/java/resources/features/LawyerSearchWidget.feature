@@ -37,7 +37,6 @@ Scenario Outline: I can search for a lawyer by entering the full name into the N
 	|	Cyril Abtan		|
 	|	Mark Blyth		|
 	
-@LoadPage
 Scenario Outline: Entering the name of a business team person while the Lawyer directory is selected will not find person
 	Given I am on the "https://www.linklaters.com/en/find-a-lawyer" page
 	And the "Lawyer Directory" tab is selected
@@ -48,9 +47,10 @@ Scenario Outline: Entering the name of a business team person while the Lawyer d
 	|	Michael Brock	|
 	|	Angus McGregor	|
 	
+@LoadPage
 Scenario: Disclaimer text will be displayed when searching for lawyers based in Japan
 	Given I am on the "https://www.linklaters.com/en/find-a-lawyer" page 
-	When I select "Japan" from the "Location" dropdown field
+	When I select "Japan" from the Location dropdown field
 	Then a disclaimer will be displayed above the retrieved lawyers
 	
 Scenario: Only 30 results will be displayed by default and clicking on the Load more button will display a further 15 will be displayed

@@ -65,5 +65,16 @@ public class FindALawyerPage_Steps extends DriverFactory {
 	public void the_profile_is_not_retrieved(String searchTerm) throws Throwable {
 		findALawyerPage.assertSearchResultsError();
 	}
+	
+	
+	@When("^I select \"([^\"]*)\" from the Location dropdown field$")
+	public void i_select_from_the_Location_dropdown_field(String option) throws Throwable {
+		findALawyerPage.selectOptionFromCountryDropdownBox(option);
+	}
+
+	@Then("^a disclaimer will be displayed above the retrieved lawyers$")
+	public void a_disclaimer_will_be_displayed_above_the_retrieved_lawyers() throws Throwable {
+
+	}
 
 }

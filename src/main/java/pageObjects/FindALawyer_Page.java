@@ -1,18 +1,17 @@
 package pageObjects;
 
 import static org.junit.Assert.assertTrue;
-
 import java.io.IOException;
 import java.util.List;
-
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
 
 public class FindALawyer_Page extends BasePage {
+	
+	String CountryOfAdmissionXpath = "//span[contains(text(),'Country of Admission')]/option";
 	
 	public @FindBy(css = "") WebElement button_LoadMore;
 	public @FindBy(xpath = "//input[@placeholder='Name']") WebElement input_SearchName;
@@ -21,6 +20,8 @@ public class FindALawyer_Page extends BasePage {
 	public @FindBy(xpath = "//a[contains(text(),'Lawyer Directory')]") WebElement selector_LawyerDirectory;
 	public @FindBy(xpath = "//a[@class='is-active']") WebElement selector_CurrentDirectory;
 	public @FindBy(xpath = "//div[@class='col-xs-12']") WebElement container_LawyerSearchReturnTextBox;
+	public @FindBy(xpath = "//span[contains(text(),'Country of Admission')]") WebElement selector_CountryOfAdmission;
+	
 	
 	@FindAll({@FindBy(xpath = "//div[@class='btn-group bootstrap-select show-tick alphabator']//ul[@class='dropdown-menu inner']/li")})
 	public List<WebElement> button_AlphabetButtons;	
@@ -102,6 +103,16 @@ public class FindALawyer_Page extends BasePage {
 	public void inputSearchTermIntoLawyerNameInput(String searchTerm) throws InterruptedException {
 		input_SearchName.sendKeys(searchTerm);
 		Thread.sleep(2000);
+	}
+	
+	
+	public void selectOptionFromCountryDropdownBox(String option) throws InterruptedException{		
+		switch(option){
+		case "Japan":
+			selectOptionFromSpecifiedDropDownList(CountryOfAdmissionXpath, option);
+			Thread.sleep(3000);
+			break;
+		}
 	}
 	
 	
