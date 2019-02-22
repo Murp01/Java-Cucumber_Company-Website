@@ -11,7 +11,9 @@ import org.openqa.selenium.support.FindBy;
 
 public class FindALawyer_Page extends BasePage {
 	
-	String CountryOfAdmissionXpath = "//span[contains(text(),'Country of Admission')]/option";
+	String CountryOfAdmissionXpath = "//select[@title='Country of Admission']/option";
+	//add below to data driven test
+	String japaneseLegalText = "999Bengoshi and Gaikokuho Jimu Bengoshi are regulated by the Japan Federation of Bar Associations and the relevant local bar associations.";
 	
 	public @FindBy(css = "") WebElement button_LoadMore;
 	public @FindBy(xpath = "//input[@placeholder='Name']") WebElement input_SearchName;
@@ -21,6 +23,8 @@ public class FindALawyer_Page extends BasePage {
 	public @FindBy(xpath = "//a[@class='is-active']") WebElement selector_CurrentDirectory;
 	public @FindBy(xpath = "//div[@class='col-xs-12']") WebElement container_LawyerSearchReturnTextBox;
 	public @FindBy(xpath = "//span[contains(text(),'Country of Admission')]") WebElement selector_CountryOfAdmission;
+	public @FindBy(xpath = "//p[@class='disclaimer-text']") WebElement container_LegalDisclaimerBox;
+	
 	
 	
 	@FindAll({@FindBy(xpath = "//div[@class='btn-group bootstrap-select show-tick alphabator']//ul[@class='dropdown-menu inner']/li")})
@@ -35,8 +39,12 @@ public class FindALawyer_Page extends BasePage {
 
 	}
 	
-	//could potentially click load more each time the lawyer list is generated.  It's own test?
 	
+	public void assertJapaneseLegalDisclaimerText() {
+		Assert.assertTrue(container_LegalDisclaimerBox.getText().contains(japaneseLegalText));
+	}
+	
+	//could potentially click load more each time the lawyer list is generated.  It's own test?	
 	public void assertLawyerPageRetrievedLawyers(String searchTerm) {	
 		for (WebElement we: container_RetrievedLawyers) {
 			String nameIs = we.getText();
@@ -112,6 +120,10 @@ public class FindALawyer_Page extends BasePage {
 			selectOptionFromSpecifiedDropDownList(CountryOfAdmissionXpath, option);
 			Thread.sleep(3000);
 			break;
+		case "France":{
+			selectOptionFromSpecifiedDropDownList(CountryOfAdmissionXpath, option);
+		}
+		
 		}
 	}
 	

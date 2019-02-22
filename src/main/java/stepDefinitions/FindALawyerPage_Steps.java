@@ -74,7 +74,7 @@ public class FindALawyerPage_Steps extends DriverFactory {
 
 	@Then("^a disclaimer will be displayed above the retrieved lawyers$")
 	public void a_disclaimer_will_be_displayed_above_the_retrieved_lawyers() throws Throwable {
-
+		findALawyerPage.assertJapaneseLegalDisclaimerText();
 	}
 
 }

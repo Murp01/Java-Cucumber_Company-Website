@@ -1,4 +1,5 @@
 Feature: Lawyer Search Widget
+Japan Legal text I could do with creating a test whereby searching for Japanese lawyer displays legal text
 
 	
 Scenario: I can search for Lawyer using a partial search term
