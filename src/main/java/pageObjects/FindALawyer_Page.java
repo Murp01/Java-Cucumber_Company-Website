@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
@@ -16,8 +17,8 @@ public class FindALawyer_Page extends BasePage {
 	public @FindBy(css = "") WebElement button_LoadMore;
 	public @FindBy(xpath = "//input[@placeholder='Name']") WebElement input_SearchName;
 	public @FindBy(xpath = "") WebElement button_PracticeDropdown;
-	public @FindBy(css = "") WebElement selector_BusinessTeamDirectory;
-	public @FindBy(css = "") WebElement selector_LawyerDirectory;
+	public @FindBy(xpath = "//a[contains(text(),'Business Team Directory')]") WebElement selector_BusinessTeamDirectory;
+	public @FindBy(xpath = "//a[contains(text(),'Lawyer Directory')]") WebElement selector_LawyerDirectory;
 	public @FindBy(xpath = "//a[@class='is-active']") WebElement selector_CurrentDirectory;
 	
 	@FindAll({@FindBy(xpath = "//div[@class='btn-group bootstrap-select show-tick alphabator']//ul[@class='dropdown-menu inner']/li")})
@@ -95,26 +96,22 @@ public class FindALawyer_Page extends BasePage {
 	
 	
 	public void selectDirectoryCategory(String directory){
-		//check if arg category is selected, if not click it
-		String selectedDirectory = selector_CurrentDirectory.getText();
+		
+		boolean isActive = selector_LawyerDirectory.getAttribute("class").contains("is-active"); 
+		
 		switch(directory){
 			case "Lawyer Directory":
-				if(selector_LawyerDirectory.isSelected()){
-					System.out.println("Excellent");
-				}
-				else{
-					
+				if(!isActive) {
+					selector_LawyerDirectory.click();					
 				}
 				break;
-			case "":
-				if(selector_BusinessTeamDirectory.isSelected()){
-					
+			case "Business Team Directory":				
+				if(isActive) {
+				selector_BusinessTeamDirectory.click();
+				
 				}
-				else{
-					//Can probably do this in one if statement instead of switch case
-				}
+				break;
 		}
-
 	}
 
 

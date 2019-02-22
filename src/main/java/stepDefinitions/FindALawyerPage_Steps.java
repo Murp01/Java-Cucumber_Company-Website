@@ -43,6 +43,7 @@ public class FindALawyerPage_Steps extends DriverFactory {
 	
 	@Given("^the \"([^\"]*)\" tab is selected$")
 	public void the_tab_is_selected(String directory) throws Throwable {
+		Thread.sleep(1000);
 		findALawyerPage.selectDirectoryCategory(directory);
 	}
 
