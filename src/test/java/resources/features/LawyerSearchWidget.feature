@@ -26,8 +26,7 @@ Scenario Outline: I can use multiple alphabet buttons to locate persons whose na
 	|	A					|	L				|
 	|	C					|	K				|	
 	|	Z					|	H				|
-
-@LoadPage	
+	
 Scenario Outline: I can search for a lawyer by entering the full name into the Name search field
 	Given I am on the "https://www.linklaters.com/en/find-a-lawyer" page
 	And the "Lawyer Directory" tab is selected
@@ -35,9 +34,10 @@ Scenario Outline: I can search for a lawyer by entering the full name into the N
 	Then the "<person>" profile is retrieved
 	Examples:
 	|	person			|
-	|	Michael Brock	|
-	|	Angus McGregor	|
+	|	Cyril Abtan		|
+	|	Mark Blyth		|
 	
+@LoadPage
 Scenario Outline: Entering the name of a business team person while the Lawyer directory is selected will not find person
 	Given I am on the "https://www.linklaters.com/en/find-a-lawyer" page
 	And the "Lawyer Directory" tab is selected

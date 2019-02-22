@@ -20,6 +20,7 @@ public class FindALawyer_Page extends BasePage {
 	public @FindBy(xpath = "//a[contains(text(),'Business Team Directory')]") WebElement selector_BusinessTeamDirectory;
 	public @FindBy(xpath = "//a[contains(text(),'Lawyer Directory')]") WebElement selector_LawyerDirectory;
 	public @FindBy(xpath = "//a[@class='is-active']") WebElement selector_CurrentDirectory;
+	public @FindBy(xpath = "//div[@class='col-xs-12']") WebElement container_LawyerSearchReturnTextBox;
 	
 	@FindAll({@FindBy(xpath = "//div[@class='btn-group bootstrap-select show-tick alphabator']//ul[@class='dropdown-menu inner']/li")})
 	public List<WebElement> button_AlphabetButtons;	
@@ -59,6 +60,14 @@ public class FindALawyer_Page extends BasePage {
 	}
 	
 	
+	public void assertSearchResultsError(){
+		//Add full error message to a spreadsheet at later date.  Also, I'm using an argument - not necessary
+		String noSearchResultsDialog = "Your search did not return any results444.";
+		Assert.assertTrue(container_LawyerSearchReturnTextBox.getText().contains(noSearchResultsDialog));
+		System.out.println(container_LawyerSearchReturnTextBox.getText());
+	}
+	
+	
 	public void clickOnAlphabetButton(String alphabetButton) throws InterruptedException {
 		for (WebElement we: button_AlphabetButtons) {
 			String buttonIs = we.getText();
@@ -90,8 +99,9 @@ public class FindALawyer_Page extends BasePage {
 	}
 	
 	
-	public void enterSearchTermIntoLawyerNameInput(String searchTerm) {
+	public void inputSearchTermIntoLawyerNameInput(String searchTerm) throws InterruptedException {
 		input_SearchName.sendKeys(searchTerm);
+		Thread.sleep(2000);
 	}
 	
 	
@@ -107,8 +117,7 @@ public class FindALawyer_Page extends BasePage {
 				break;
 			case "Business Team Directory":				
 				if(isActive) {
-				selector_BusinessTeamDirectory.click();
-				
+				selector_BusinessTeamDirectory.click();		
 				}
 				break;
 		}

@@ -10,7 +10,7 @@ public class FindALawyerPage_Steps extends DriverFactory {
 	
 	@And("^I type \"([^\"]*)\" into the Find A Lawyer Page Search Box$")
 	public void i_type_into_the_Find_A_Lawyer_Page_Search_Box(String searchTerm) throws Throwable {
-		findALawyerPage.enterSearchTermIntoLawyerNameInput(searchTerm);
+		findALawyerPage.inputSearchTermIntoLawyerNameInput(searchTerm);
 		Thread.sleep(2000);
 	}
 
@@ -43,18 +43,27 @@ public class FindALawyerPage_Steps extends DriverFactory {
 	
 	@Given("^the \"([^\"]*)\" tab is selected$")
 	public void the_tab_is_selected(String directory) throws Throwable {
-		Thread.sleep(1000);
 		findALawyerPage.selectDirectoryCategory(directory);
 	}
 
 	@When("^I enter the name of a \"([^\"]*)\" who is in the lawyer team$")
-	public void i_enter_the_name_of_a_who_is_in_the_lawyer_team(String arg1) throws Throwable {
-
+	public void i_enter_the_name_of_a_who_is_in_the_lawyer_team(String searchTerm) throws Throwable {
+		findALawyerPage.inputSearchTermIntoLawyerNameInput(searchTerm);
 	}
 
 	@Then("^the \"([^\"]*)\" profile is retrieved$")
-	public void the_profile_is_retrieved(String arg1) throws Throwable {
+	public void the_profile_is_retrieved(String searchTerm) throws Throwable {
+		findALawyerPage.assertLawyerPageRetrievedLawyers(searchTerm);
+	}
+	
+	@When("^I enter the name of a \"([^\"]*)\" who is in the business team and not a lawyer$")
+	public void i_enter_the_name_of_a_who_is_in_the_business_team_and_not_a_lawyer(String searchTerm) throws Throwable {
+		findALawyerPage.inputSearchTermIntoLawyerNameInput(searchTerm);
+	}
 
+	@Then("^the \"([^\"]*)\" profile is not retrieved$")
+	public void the_profile_is_not_retrieved(String searchTerm) throws Throwable {
+		findALawyerPage.assertSearchResultsError();
 	}
 
 }
