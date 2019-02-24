@@ -36,6 +36,22 @@ public class LandingPageChecks_Steps extends DriverFactory {
 		landingPageChecksPage.assertPageUrl(pageURL);
 		landingPageChecksPage.assertPageTitle(pageTitle);
 	}
+
+	
+	@Given("^I hover over \"([^\"]*)\" from the primary nav and click on all secondary nav titles$")
+	public void i_hover_over_from_the_primary_nav_and_click_on_all_secondary_nav_titles(String primaryNavTitle) throws Throwable {
+		landingPageChecksPage.clickOnAllSecTitlesAndPrintTitleUrl(primaryNavTitle);
+	}
+
+	@When("^I click on each of the secondary navs links and capture the titles and urls of the new tabs$")
+	public void i_click_on_each_of_the_secondary_navs_links_and_capture_the_titles_and_urls_of_the_new_tabs() throws Throwable {
+
+	}
+
+	@Then("^the urls and titles will all be formatted correctly$")
+	public void the_urls_and_titles_will_all_be_formatted_correctly() throws Throwable {
+
+	}
 	
 
 
