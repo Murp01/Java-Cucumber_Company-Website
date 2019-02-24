@@ -21,7 +21,12 @@ public class LandingPageChecks_Page extends BasePage {
 	public @FindBy(xpath = "//a[contains(text(),'At a glance')]") WebElement href_AtAGlance;
 	public @FindBy(xpath = "//div[@class='header__navDesktop']//a[contains(text(),'Client Services')]") WebElement href_ClientServices;
 	public @FindBy(xpath = "//a[contains(text(),'Banking')]") WebElement href_Banking;	
-
+	public @FindBy(xpath = "//div[@class='header__navDesktop']//a[contains(text(),'Sectors')]") WebElement href_Sectors;
+	public @FindBy(xpath = "//a[contains(text(),'Automotive')]") WebElement href_Automotive;	
+	public @FindBy(xpath = "//div[@class='header__navDesktop']//a[contains(text(),'Locations')]") WebElement href_Locations;
+	public @FindBy(xpath = "//a[@href='/en/locations/africa']") WebElement href_Africa;	
+	public @FindBy(xpath = "//div[@class='header__navDesktop']//a[contains(text(),'Insights')]") WebElement href_Insights;	
+	public @FindBy(xpath = "//a[contains(text(),'Blogs')]") WebElement href_Blogs;	
 	
 	
 	@FindAll({@FindBy(xpath = "//div[@class='row nav__list is-active']/ul//a")})
@@ -37,33 +42,42 @@ public class LandingPageChecks_Page extends BasePage {
 	
 	
 	public void clickOnAllSecTitlesAndPrintTitleUrl(String primaryNavTitle) throws InterruptedException {
-		  
+		Actions action = new Actions(getDriver());  
 		switch(primaryNavTitle) {
-		case "About Us":
-			  Actions action001 = new Actions(getDriver());
-			  action001.moveToElement(href_AboutUsPage).build().perform();
+		case "About Us":		 
+			  action.moveToElement(href_AboutUsPage).build().perform();
 			  basePage.waitForElementToAppear(href_Alumni);
-			for (WebElement we: href_AboutUsSecondaryHrefList) {
-				String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,Keys.RETURN); 
-				we.sendKeys(selectLinkOpeninNewTab);
-				openEachLinkInTabPrintTitleUrlCloseTab();
-			}
+			  openEachLinkInTabPrintTitleUrlCloseTab();
 			break;
 		case "Client Services":
-			  Actions action002 = new Actions(getDriver());
-			  action002.moveToElement(href_ClientServices).build().perform();
+			  action.moveToElement(href_ClientServices).build().perform();
 			  basePage.waitForElementToAppear(href_Banking);
-				for (WebElement we: href_ActiveSecondaryHrefList) {
-					String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,Keys.RETURN); 
-					we.sendKeys(selectLinkOpeninNewTab);
-					openEachLinkInTabPrintTitleUrlCloseTab();
-				}
+			  openEachLinkInTabPrintTitleUrlCloseTab();				
+			break;
+		case "Sectors":
+			action.moveToElement(href_Sectors).build().perform();
+			basePage.waitForElementToAppear(href_Automotive);
+			openEachLinkInTabPrintTitleUrlCloseTab();
+			break;
+		case "Locations":
+			action.moveToElement(href_Locations).build().perform();
+			basePage.waitForElementToAppear(href_Africa);
+			openEachLinkInTabPrintTitleUrlCloseTab();			
+			break;
+		case "Insights":
+			action.moveToElement(href_Insights).build().perform();
+			basePage.waitForElementToAppear(href_Blogs);
+			openEachLinkInTabPrintTitleUrlCloseTab();		
 			break;
 		}
 	}
 	
 	
 	public void openEachLinkInTabPrintTitleUrlCloseTab() {
+		for (WebElement we: href_ActiveSecondaryHrefList) {
+			String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,Keys.RETURN); 
+			we.sendKeys(selectLinkOpeninNewTab);
+			
 			Set <String> st= driver.getWindowHandles();
 			Iterator<String> it = st.iterator();
 			
@@ -77,6 +91,7 @@ public class LandingPageChecks_Page extends BasePage {
 			
 			getDriver().close();
 			getDriver().switchTo().window(parent);
+		}
 	}
 	
 	

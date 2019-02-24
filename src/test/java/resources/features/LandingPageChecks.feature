@@ -31,4 +31,7 @@ Feature: Landing page smoke tests
     	| primarynavtitle	|
       | About Us        |
       |	Client Services	|
+      |	Sectors					|
+      | Locations				|
+      |	Insights				|
 
