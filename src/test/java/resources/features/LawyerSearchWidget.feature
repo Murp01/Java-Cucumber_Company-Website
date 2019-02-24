@@ -1,6 +1,6 @@
 Feature: Lawyer Search Widget
 Japan Legal text I could do with creating a test whereby searching for Japanese lawyer displays legal text
-
+Load more button test with specific lawyer name count?  Possible without data driven info?
 	
 Scenario: I can search for Lawyer using a partial search term
 	Given I am on the "https://www.linklaters.com/en/find-a-lawyer" page
@@ -48,7 +48,6 @@ Scenario Outline: Entering the name of a business team person while the Lawyer d
 	|	Michael Brock	|
 	|	Angus McGregor	|
 	
-@LoadPage
 Scenario: Disclaimer text will be displayed when searching for lawyers based in Japan
 	Given I am on the "https://www.linklaters.com/en/find-a-lawyer" page 
 	When I select "Japan" from the Location dropdown field
@@ -58,4 +57,4 @@ Scenario: Only 30 results will be displayed by default and clicking on the Load 
 	Given I am on the "https://www.linklaters.com/en/find-a-lawyer" page
 	And the default "30" results will be displayed by default
 	When I click on the "LOAD MORE" button
-	Then a further "15" retrieved results will be displayed 
+	Then a further "30" retrieved results will be displayed 

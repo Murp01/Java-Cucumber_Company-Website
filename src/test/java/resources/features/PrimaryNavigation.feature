@@ -26,3 +26,15 @@ Scenario: Print out all primary nav title and urls
 	When I click on all primary header links
 	Then all primary header pages will contain the correct title
 	
+@LoadPage
+Scenario Outline: Print all of a primary titles secondary navs titles and urls
+	Given I access the websites homepage
+	And I hover over "<primarynavtitle>" from the primary nav
+	When I click on each of the secondary navs links and capture the titles and urls of the new tabs
+	Then the urls and titles will all be formatted correctly
+	Examples:
+	|	About Us				|
+	| Client Services	|
+	|	Sectors					|
+	
+	

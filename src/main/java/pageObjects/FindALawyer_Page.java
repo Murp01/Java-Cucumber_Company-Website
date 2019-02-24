@@ -11,11 +11,13 @@ import org.openqa.selenium.support.FindBy;
 
 public class FindALawyer_Page extends BasePage {
 	
+	static private int personCount;
+	
 	String CountryOfAdmissionXpath = "//select[@title='Country of Admission']/option";
 	//add below to data driven test
-	String japaneseLegalText = "999Bengoshi and Gaikokuho Jimu Bengoshi are regulated by the Japan Federation of Bar Associations and the relevant local bar associations.";
+	String japaneseLegalText = "Bengoshi and Gaikokuho Jimu Bengoshi are regulated by the Japan Federation of Bar Associations and the relevant local bar associations.";
 	
-	public @FindBy(css = "") WebElement button_LoadMore;
+	public @FindBy(xpath = "//span[@class='ctaLoadMore__text']") WebElement button_LoadMore;
 	public @FindBy(xpath = "//input[@placeholder='Name']") WebElement input_SearchName;
 	public @FindBy(xpath = "") WebElement button_PracticeDropdown;
 	public @FindBy(xpath = "//a[contains(text(),'Business Team Directory')]") WebElement selector_BusinessTeamDirectory;
@@ -24,6 +26,7 @@ public class FindALawyer_Page extends BasePage {
 	public @FindBy(xpath = "//div[@class='col-xs-12']") WebElement container_LawyerSearchReturnTextBox;
 	public @FindBy(xpath = "//span[contains(text(),'Country of Admission')]") WebElement selector_CountryOfAdmission;
 	public @FindBy(xpath = "//p[@class='disclaimer-text']") WebElement container_LegalDisclaimerBox;
+
 	
 	
 	
@@ -40,9 +43,21 @@ public class FindALawyer_Page extends BasePage {
 	}
 	
 	
+	public void assertCountOfDisplayedProfiles(int countProfiles) {
+		Assert.assertEquals(countProfiles, container_RetrievedLawyers.size());	
+		personCount = container_RetrievedLawyers.size();
+	}
+	
+	
+	public void assertCountOfDisplayedProfilesAfterClickingLoadMore(int addedLawyerCount) {
+		Assert.assertEquals(personCount + addedLawyerCount, container_RetrievedLawyers.size());
+	}
+	
+	
 	public void assertJapaneseLegalDisclaimerText() {
 		Assert.assertTrue(container_LegalDisclaimerBox.getText().contains(japaneseLegalText));
 	}
+	
 	
 	//could potentially click load more each time the lawyer list is generated.  It's own test?	
 	public void assertLawyerPageRetrievedLawyers(String searchTerm) {	
@@ -74,6 +89,12 @@ public class FindALawyer_Page extends BasePage {
 		String noSearchResultsDialog = "Your search did not return any results444.";
 		Assert.assertTrue(container_LawyerSearchReturnTextBox.getText().contains(noSearchResultsDialog));
 		System.out.println(container_LawyerSearchReturnTextBox.getText());
+	}
+	
+	
+	public void clickLoadMoreButtonOnce() throws InterruptedException {
+		button_LoadMore.click();
+		Thread.sleep(4000);
 	}
 	
 	
