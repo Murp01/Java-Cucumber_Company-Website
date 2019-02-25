@@ -21,10 +21,8 @@ Scenario Outline: I can return to the homepage from anywhere on the site with th
 	|	https://www.linklaters.com/en/client-services			|
 	|	https://www.linklaters.com								|
 
-Scenario: Print out all primary nav title and urls
+Scenario: Each page will display breadcrumbs that lead back to the homepage
 	Given I access the websites homepage
-	When I click on all primary header links
-	Then all primary header pages will contain the correct title
 	
 
 	
