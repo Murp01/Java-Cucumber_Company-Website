@@ -1,7 +1,5 @@
 package pageObjects;
 
-import static org.junit.Assert.assertTrue;
-
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;

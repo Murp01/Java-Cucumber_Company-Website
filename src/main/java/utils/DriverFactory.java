@@ -19,6 +19,7 @@ import pageObjects.GlobalHeader_Page;
 import pageObjects.Home_Page;
 import pageObjects.LandingPageChecks_Page;
 import pageObjects.NavFindPeople_Page;
+import pageObjects.NewsLetterForm_Page;
 import pageObjects.PrimaryNav_Page;
 import pageObjects.YourApplication_Page;
 import pageObjects.AboutUs_Page;
@@ -39,6 +40,7 @@ public class DriverFactory {
 	public static GlobalHeader_Page globalHeaderPage;
 	public static YourApplication_Page yourApplicationPage;
 	public static LandingPageChecks_Page landingPageChecksPage;
+	public static NewsLetterForm_Page newsLetterFormPage;
 
 	public WebDriver getDriver() {
 
@@ -98,6 +100,7 @@ public class DriverFactory {
 			yourApplicationPage = PageFactory.initElements(driver, YourApplication_Page.class);
 			landingPageChecksPage = PageFactory.initElements(driver, LandingPageChecks_Page.class);
 			fintechPage = PageFactory.initElements(driver, Fintech_Page.class);
+			newsLetterFormPage = PageFactory.initElements(driver, NewsLetterForm_Page.class);
 		}
 		return driver;
 
