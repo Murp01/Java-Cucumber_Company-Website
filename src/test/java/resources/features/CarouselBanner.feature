@@ -3,13 +3,14 @@ Feature: Homepage Carousel widget
 The homepage has a carousel widget that...
 
 
-
+#Fails
 Scenario: Click on different tabs on Carousel widget via border arrows
 	Given I access the websites homepage
 	And I scroll the carousel feature by clicking on the "Right" border arrow
 	When I scroll the carousel feature by clicking on the "Right" border arrow
 	Then the carousel slide will change
 	
+#two of three ScenarioFail - have the slides changed and I represent them incorrectly
 Scenario Outline: Click on each tab from within a carousel category
 	Given I access the websites homepage
 	And "<category>" tab is selected
@@ -22,6 +23,7 @@ Scenario Outline: Click on each tab from within a carousel category
 	| 	category01			|	slide03				|	slide03		|
 	|	category03			|	slide01				|	slide01		|
 	
+@Complete
 Scenario Outline: Click on each category from the carousel widget
 	Given I access the websites homepage
 	When I click on "<categoryclick>" tab
@@ -33,6 +35,7 @@ Scenario Outline: Click on each category from the carousel widget
 	|	category02		|	category02			|
 	|	category03		| 	category03			|	
 	
+@Complete
 Scenario Outline: Clicking on links from within a slide will redirect to another webpage
 	Given I access the websites homepage
 	And "<selectedcategory" is selected with "<selectedslide>" selected

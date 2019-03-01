@@ -1,5 +1,6 @@
 Feature: Landing page smoke tests
 
+ @Complete
   Scenario Outline: I want the title and the URL to be correct when accessing pages from the primary navigation bar
     Given I start on the "<startpage>" page
     When I click on "<primarynavpage>" from the primary navigation
@@ -9,7 +10,7 @@ Feature: Landing page smoke tests
       | startpage | primarynavpage | title    | url      |
       | homepage  | About Us       | About Us | About Us |
 
-  
+  @Complete
   Scenario Outline: I want the title and url to be correct when accessing pages from the secondary navigation bar
     Given I start on the "<startpage>" page
     When I hover over "<primarynavpage>" and select "<secondarynavpage>" from the secondary navigation
@@ -21,7 +22,7 @@ Feature: Landing page smoke tests
       | homepage  | About Us       | Alumni           | Alumni      | Alumni      |
       | homepage  | About Us       | At a glance      | At a glance | At a glance |
 
-	@LoadPage
+	@Complete
   Scenario Outline: Print all of a primary titles secondary navs titles and urls
     Given I access the websites homepage
     And I hover over "<primarynavtitle>" from the primary nav and click on all secondary nav titles
